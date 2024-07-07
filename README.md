@@ -62,13 +62,13 @@ You will need to setup the following environment strings for development.  Add t
 
 (You can add these to a file for tracking but they should not be committed to your branch.  Add such a file to .gitignore.)
 
-**RMS_JWT_TokenPhrase** - create a long string for the unique token phrase.  This is used to create the JWT token.
-**RMSAzureDBConnString** - connection string for the Azure SQL Server database.
-**RMSAzureWebApiAddress** - the address of the web api on Azure.
-**RMSLocalDbConnString** - connection string for the local SQL Server database.
-**RMSLocalPostgresConnString** - connection string for the local Postgres database.
-**RMSDefaultSalt** - 36 char salt string.
-**RMSDefaultEncryptionKey** - 36 char encryption key string.
+* **RMS_JWT_TokenPhrase** - create a long string for the unique token phrase.  This is used to create the JWT token.
+* **RMSAzureDBConnString** - connection string for the Azure SQL Server database.
+* **RMSAzureWebApiAddress** - the address of the web api on Azure.
+* **RMSLocalDbConnString** - connection string for the local SQL Server database.
+* **RMSLocalPostgresConnString** - connection string for the local Postgres database.
+* **RMSDefaultSalt** - 36 char salt string.
+* **RMSDefaultEncryptionKey** - 36 char encryption key string.
 
 ## Contributing  <a name="contributing"></a>
 
