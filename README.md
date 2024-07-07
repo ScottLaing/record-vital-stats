@@ -3,11 +3,11 @@
 
 ## Project Description
 
-Record-Vital-Stats project is a windows desktop project to consume a web api, to save and retrieve vital stats.  Both WPF front end and
-web api back end are included in the project code.  
-The project is written in C# and uses a SQL Server or Postgres database.  
-The project is being developed in Visual Studio 2022.  It is being developed in C# .net core 8.0.  
-This is currently a windows application only, WPF front end. A later version may support Angular or web front end also.
+Record-Vital-Stats project is a windows desktop project to consume a web api, to save and retrieve vital stats.  
+Both WPF front end and web api back end projects are included in the solution.  
+The project is written in C# and can use a SQL Server or Postgres database for the stats.  
+The project is being developed in Visual Studio 2022.  It is currently being developed in C# .net core 8.0.  
+Note: this is currently a windows application only, with a WPF front end. A later version may support Angular or web front end also.
 
 ## Table of Contents
 
@@ -52,8 +52,8 @@ Dev Notes for installation and setup.
 
 For local development you will need to:
 
-* Modify the properties in your visual studio solution to have these as your startup projects: RecordMyStats (wpf), RecordMyStats.WebApi2 (backend web api).
-* With this solution setup you can use the "Start" button in Visual Studio to run the project.
+* Modify the properties in your visual studio solution to have these as your startup projects: **RecordMyStats** (wpf front end), **RecordMyStats.WebApi2** (backend web api).
+* With this solution setup you can just use the "Start" button in Visual Studio to run the project.
 
 
 ## Environment Variables  <a name="env"></a>
@@ -62,13 +62,13 @@ You will need to setup the following environment strings for development.  Add t
 
 (You can add these to a file for tracking but they should not be committed to your branch.  Add such a file to .gitignore.)
 
-RMS_JWT_TokenPhrase - create a long string for the unique token phrase.  This is used to create the JWT token.
-RMSAzureDBConnString - connection string for the Azure SQL Server database.
-RMSAzureWebApiAddress - the address of the web api on Azure.
-RMSLocalDbConnString - connection string for the local SQL Server database.
-RMSLocalPostgresConnString - connection string for the local Postgres database.
-RMSDefaultSalt - 36 char salt string.
-RMSDefaultEncryptionKey - 36 char encryption key string.
+**RMS_JWT_TokenPhrase** - create a long string for the unique token phrase.  This is used to create the JWT token.
+**RMSAzureDBConnString** - connection string for the Azure SQL Server database.
+**RMSAzureWebApiAddress** - the address of the web api on Azure.
+**RMSLocalDbConnString** - connection string for the local SQL Server database.
+**RMSLocalPostgresConnString** - connection string for the local Postgres database.
+**RMSDefaultSalt** - 36 char salt string.
+**RMSDefaultEncryptionKey** - 36 char encryption key string.
 
 ## Contributing  <a name="contributing"></a>
 
