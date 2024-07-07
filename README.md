@@ -13,7 +13,7 @@ Note: this is currently a windows application only, with a WPF front end. A late
 
 * [Project Description](#project-description)
 * [Features](#features)
-* [Installation](#installation)
+* [Installation and Setup](#installation)
 * [Environment strings](#env)
 * [Usage](#usage)
 * [Contributing](#contributing)
@@ -80,4 +80,4 @@ MIT License
 
 ## Contact
 
-If you have any questions about this project, feel free to contact me at scottlaing@gmail.com.
+If you have any questions about this project, feel free to contact me at <a href="mailto:scottlaing@gmail.com">scottlaing@gmail.com</a>.
