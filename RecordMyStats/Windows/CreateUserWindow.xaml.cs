@@ -1,4 +1,6 @@
-﻿namespace RecordMyStats.Windows;
+﻿using Nager.Country;
+
+namespace RecordMyStats.Windows;
 
 /// <summary>       
 /// Interaction logic for CreateUserWindow.xaml
@@ -8,6 +10,15 @@ public partial class CreateUserWindow : Window
     private IVitalsBLL vitalsBLL = VitalsFactory.GetVitalsBLL();
     public string? SessionKey { get; private set; }
     private string Token { get; set; } = "";
+
+    public static List<string> GetCountries()
+    {
+        var countryProvider = new CountryProvider();
+        var countries = countryProvider.GetCountries()
+          .Select(country => country.CommonName)
+          .ToList();
+        return countries;
+    }
 
     public CreateUserWindow()
     {
@@ -19,23 +30,16 @@ public partial class CreateUserWindow : Window
         this.cmbSex.Items.Add("Non-Binary");
         this.cmbSex.Items.Add("Don't wish to say");
 
-        string[] countries = new string[] {
-            "United States",
-            "Mexico",
-            "Canada",
-            "France",
-            "Germany",
-            "Italy",
-            "China",
-            "India",
-            "Hungary",
-            "South Africa",
-            "Egypt",
-            "Japan"
-        };
+        var countries = GetCountries();
 
         var countryList = countries.OrderBy(c => c).ToList();
         countryList.ForEach(c => this.cmbCountry.Items.Add(c));
+
+        this.cmbCountry.SelectedItem = "United States";
+
+        var now = DateTime.Now;
+
+        dpDateOfBirth.SelectedDate = new DateTime(now.Year - 20, now.Month, now.Day);
 
         this.txtFirstName.Focus();
     }
@@ -90,26 +94,20 @@ public partial class CreateUserWindow : Window
             return;
         }
 
-        try
-        {
-            DateTime now = DateTime.Now;
-            DateTime x = DateTime.Parse(this.txtDOB.Text);
-            if ( now.Year < x.Year)
-            {
-                MessageBox.Show("Date of birth is invalid (year is future).");
-                return;
-            }
-            if (now.Year - x.Year > 130)
-            {
-                MessageBox.Show("Date of birth is invalid (year too old).");
-                return;
-            }
-        }
-        catch
-        {
-            MessageBox.Show("Date of birth is invalid.");
+        var dateChoice = dpDateOfBirth.SelectedDate;
+
+        if (dateChoice == null) 
+        {             
+            MessageBox.Show("No date of birth chosen.");
             return;
         }
+
+        if (dateChoice >= DateTime.Now)
+        {
+            MessageBox.Show("Birth date cannot be future.");
+            return;
+        }
+
 
         if (!EmailUtility.IsValidEmail(this.txtEmail.Text))
         {
@@ -141,7 +139,7 @@ public partial class CreateUserWindow : Window
             Email = this.txtEmail.Text,
             Zip = "",
             Password = this.txtPassword.Password,
-            DateOfBirth = DateTime.Parse(this.txtDOB.Text)
+            DateOfBirth = dpDateOfBirth.SelectedDate
         };
 
         bool result = vitalsBLL.AddMember(member, out string errors, out string newSessionKey, out string newToken);

@@ -16,7 +16,7 @@ namespace RecordMyStats.Common
 
         public class AppGlobal
         {
-            public static string ApplicationName = "Daily Vitalz";
+            public static string ApplicationName = "Record Vital Stats";
         }
 
         public class TokenOptions

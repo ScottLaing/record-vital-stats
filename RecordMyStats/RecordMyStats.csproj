@@ -108,4 +108,8 @@
     <Folder Include="Resources\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Nager.Country" Version="4.0.0" />
+  </ItemGroup>
+
 </Project>

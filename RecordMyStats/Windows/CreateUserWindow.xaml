@@ -53,7 +53,8 @@
         <ComboBox x:Name="cmbSex" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Center" Width="120" TabIndex="5" />
 
         <Label Content="Date of Birth:" HorizontalAlignment="Left" VerticalAlignment="Top"   Grid.Row="6" Grid.Column="1" Margin="40,4,0,0"  />
-        <TextBox x:Name="txtDOB"   HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center"   Grid.Row="6" Grid.Column="2" Width="130" TabIndex="6" />
+        <DatePicker x:Name="dpDateOfBirth" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="6" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDOB"   HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center"   Grid.Row="6" Grid.Column="2" Width="130" TabIndex="6" Visibility="Hidden" />
 
         <Label Content="Country:" HorizontalAlignment="Left" VerticalAlignment="Center"   Grid.Row="7" Grid.Column="1" Margin="69,0,0,0"  />
         <ComboBox x:Name="cmbCountry" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Center" Width="190" TabIndex="7"/>

@@ -37,8 +37,8 @@
         <CheckBox x:Name="chkSaveLoginSettings" Grid.Column="2" Content="Save settings" HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="4" VerticalAlignment="Top" FontSize="10"/>
 
         <Button x:Name="btnLoginUser" Content="Login User" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" Width="111" Click="btnLoginUser_Click" Margin="0,0,0,0" Background="#BB9457" IsDefault="True" />
-        
-        <Button x:Name="btnCreateUser" Content="New User" HorizontalAlignment="Center" VerticalAlignment="Top"  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" Width="116" Click="btnCreateNewUser_Click" Background="#99582A" Margin="0,5,0,0" />
+
+        <Button x:Name="btnCreateUser" Content="New User" HorizontalAlignment="Center" VerticalAlignment="Top"  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" Width="116" Click="btnCreateNewUser_Click" Background="#BB9457" Margin="0,5,0,0" />
 
         <Button x:Name="btnTest" Content="Test" HorizontalAlignment="Left" VerticalAlignment="Center"  Grid.Row="1" Grid.Column="1" Width="71" Click="btnTest_Click" Background="DeepSkyBlue" Margin="32,0,0,0" Grid.ColumnSpan="2" Visibility="Hidden" />
 
