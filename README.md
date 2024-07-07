@@ -3,11 +3,7 @@
 
 ## Project Description
 
-Record-Vital-Stats project is a windows desktop project to consume a web api, to save and retrieve vital stats.  
-Both WPF front end and web api back end projects are included in the solution.  
-The project is written in C# and can use a SQL Server or Postgres database for the stats.  
-The project is being developed in Visual Studio 2022.  Most projects are using .net core 6.0.  
-Note: this is currently a windows application only, with a WPF front end. A later version may support Angular or a web front end also.
+Record-Vital-Stats project is a windows desktop project to consume a web api, to save and retrieve vital stats. Both WPF front end and web api back end projects are included in the solution. The project is written in C# and can use a SQL Server or Postgres database for the stats. The project is being developed in Visual Studio 2022.  Most projects are using .net core 6.0. Note: this is currently a windows application only, with a WPF front end. A later version may support Angular or a web front end also.
 
 ## Table of Contents
 
