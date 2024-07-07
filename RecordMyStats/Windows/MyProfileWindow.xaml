@@ -1,0 +1,44 @@
+﻿<Window x:Class="RecordMyStats.Windows.MyProfileWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RecordMyStats"
+        mc:Ignorable="d"
+        Icon="\Images\CheckedOutByOtherUser.png"
+        Background="#6f1d1b"
+        Title="My Profile" Height="197" Width="322" ResizeMode="CanMinimize">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1"></ColumnDefinition>
+            <ColumnDefinition Width="140"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Name:" HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,13,0,0" Foreground="#BB9457" FontWeight="Bold" Grid.Column="1" />
+        <TextBox x:Name="txtFirstName" Text="Steven Spielberg"  HorizontalAlignment="Left" Style="{StaticResource UserPropertiesTextbox}"  VerticalAlignment="Top" Grid.Column="1" Margin="100,20,0,0" Grid.ColumnSpan="2"  />
+        <Label Content="Email:" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="50,48,0,0" Grid.Column="1" Grid.RowSpan="2"  Foreground="#BB9457" FontWeight="Bold" />
+        <TextBox x:Name="txtEmail"  HorizontalAlignment="Left" Style="{StaticResource UserPropertiesTextbox}" Text="steves@dreamworks.com" VerticalAlignment="Top" Grid.Column="1" Margin="100,5,0,0" Grid.ColumnSpan="2" Grid.Row="1"  />
+        <Label Content="Created:"  Foreground="#BB9457" FontWeight="Bold" VerticalAlignment="Top" Grid.Row="2"  Grid.Column="1" Grid.RowSpan="2" Margin="34,30,40,0" />
+        <TextBox x:Name="txtAccountCreated"  HorizontalAlignment="Left" Style="{StaticResource UserPropertiesTextbox}" Text="03-02-2004" VerticalAlignment="Top" Grid.Column="1" Margin="100,37,0,0" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="2"  />
+        <Label Content="Country:" HorizontalAlignment="Left"  Foreground="#BB9457" FontWeight="Bold" VerticalAlignment="Top"  Margin="34,34,0,0" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" />
+        <TextBox x:Name="txtCountry"  HorizontalAlignment="Left" Style="{StaticResource UserPropertiesTextbox}" Text="United States of America" VerticalAlignment="Top" Grid.Column="1" Margin="100,1,0,0" Grid.ColumnSpan="2" Grid.Row="2"  />
+
+    </Grid>
+</Window>

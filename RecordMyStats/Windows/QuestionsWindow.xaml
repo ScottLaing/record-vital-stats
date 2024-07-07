@@ -1,0 +1,134 @@
+﻿<Window x:Class="RecordMyStats.Windows.QuestionsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RecordMyStats"
+        mc:Ignorable="d"
+        Icon="\Images\RecordStep_16x.png"
+        KeyDown="Window_KeyDown"
+        Background="LightBlue"
+        xmlns:local2="clr-namespace:RecordMyStats.UserControls"
+        Title="Cert Questions" Height="868" Width="616" ResizeMode="CanMinimize">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="140"></RowDefinition>
+            <RowDefinition Height="27"></RowDefinition>
+            <RowDefinition Height="160"></RowDefinition>
+            <RowDefinition Height="4"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <DockPanel Grid.ColumnSpan="4" Grid.Row="0" Height="21" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <local2:MainMenuControl x:Name="ucMainMenu"/>
+        </DockPanel>
+
+        <Label Content="Question:" FontSize="11" HorizontalAlignment="Left" VerticalAlignment="Top" Width="77" Foreground="Black" Grid.Column="1" Grid.Row="1" Margin="0,10,0,0" />
+
+        <TextBlock x:Name="tbCorrect" Grid.Column="2" HorizontalAlignment="Left" Margin="10,14,0,0" TextWrapping="Wrap" Text="                 CORRECT" Background="LightGreen" VerticalAlignment="Top" Width="150" Grid.Row="1"/>
+        <TextBlock x:Name="tbInCorrect" Grid.Column="2" HorizontalAlignment="Left" Margin="28,14,0,0" TextWrapping="Wrap" Text="                 INCORRECT" Background="Pink" VerticalAlignment="Top" Width="150" Grid.Row="1"/>
+
+        <CheckBox Grid.Column="2" FontSize="9" x:Name="chkShowExplanations" HorizontalAlignment="Left" Margin="263,14,0,0" VerticalAlignment="Top" Grid.Row="1">
+            <TextBlock VerticalAlignment="Top" FontWeight="Bold">
+                Show Explanations
+            </TextBlock>
+        </CheckBox>
+
+        <Label x:Name="lblIdLabel" FontWeight="Bold" FontSize="11" Content="ID:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Blue" Margin="396,9,0,0" Grid.Column="2" Width="58" Grid.Row="1" />
+
+
+        <TextBox x:Name="txtQuestion" IsReadOnly="False" Style="{StaticResource SmallTextbox}" FontSize="12" Text=""  HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="574" Height="141" Grid.Column="1" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" AcceptsTab="True" Grid.Row="2" />
+
+        <Button x:Name="btnUpdateQuestion" FontSize="10" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Row="3" Grid.Column="2" Width="92" Click="btnUpdateQuestion_Click" Margin="362,6,0,0" Height="20" />
+
+        <CheckBox Grid.Column="1"  VerticalAlignment="Top" x:Name="cbAnswer1"  HorizontalAlignment="Left" Margin="0,0,0,0" Height="35" IsChecked="False" Grid.ColumnSpan="2" Width="550" Grid.Row="4" IsEnabled="True">
+            <CheckBox.Content>
+                <Border BorderBrush="{x:Null}" Height="35" Width="550">
+                    <TextBlock Name="txtcbAnswer1" Text="Sample Question" Width="540" TextWrapping="Wrap" Height="33"  VerticalAlignment="Center" />
+                </Border>
+            </CheckBox.Content>
+        </CheckBox>
+
+        <RadioButton Grid.Column="1" x:Name="rbAnswer1" Height="35"  HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="0,0,0,0" IsChecked="False" Grid.ColumnSpan="2" Width="550" Grid.Row="4" IsEnabled="True">
+            <RadioButton.Content>
+                <Border BorderBrush="{x:Null}" Height="35" Width="550">
+                    <TextBlock Name="txtrbAnswer1" Text="Sample Question" Width="540" TextWrapping="Wrap" Height="33"   VerticalAlignment="Center"/>
+                </Border>
+            </RadioButton.Content>
+        </RadioButton>
+
+        <CheckBox Grid.Column="1" x:Name="cbAnswer2"  Height="35"  HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" Foreground="Black" IsChecked="False" Grid.ColumnSpan="2" Width="550" Grid.Row="4" IsEnabled="True">
+            <CheckBox.Content>
+                <Border BorderBrush="{x:Null}" Height="35" Width="550">
+                    <TextBlock Name="txtcbAnswer2" Text="Sample Question" Width="540" TextWrapping="Wrap" Height="33"   VerticalAlignment="Center" RenderTransformOrigin="0.497,0.541"/>
+                </Border>
+            </CheckBox.Content>
+        </CheckBox>
+
+        <RadioButton Grid.Column="1" x:Name="rbAnswer2"  Height="35"  HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" Foreground="Black" IsChecked="False" Grid.ColumnSpan="2" Width="550" Grid.Row="4" IsEnabled="True">
+            <RadioButton.Content>
+                <Border BorderBrush="{x:Null}" Height="35" Width="550">
+                    <TextBlock Name="txtrbAnswer2" Text="Sample Question" Width="540" TextWrapping="Wrap"  Height="33"  VerticalAlignment="Center" RenderTransformOrigin="0.497,0.541"/>
+                </Border>
+            </RadioButton.Content>
+        </RadioButton>
+
+        <CheckBox Grid.Column="1" x:Name="cbAnswer3"  Height="35"  HorizontalAlignment="Left" Margin="0,80,0,0" VerticalAlignment="Top" Foreground="Black" IsChecked="False" Grid.ColumnSpan="2" Width="550" Grid.Row="4" IsEnabled="True">
+            <CheckBox.Content>
+                <Border BorderBrush="{x:Null}" Height="35" Width="550">
+                    <TextBlock Name="txtcbAnswer3" Text="Sample Question"  Width="540"  TextWrapping="Wrap"  Height="33"  VerticalAlignment="Center" />
+                </Border>
+            </CheckBox.Content>
+        </CheckBox>
+
+        <RadioButton Grid.Column="1" x:Name="rbAnswer3"  Height="35"  HorizontalAlignment="Left" Margin="0,80,0,0" VerticalAlignment="Top" Foreground="Black" IsChecked="False" Grid.ColumnSpan="2" Width="550" Grid.Row="4" IsEnabled="True">
+            <RadioButton.Content>
+                <Border BorderBrush="{x:Null}" Height="35" Width="550">
+                    <TextBlock Name="txtrbAnswer3" Text="Sample Question"  Width="540"  TextWrapping="Wrap" Height="33"  VerticalAlignment="Top" Margin="0,0,0,0"/>
+                </Border>
+            </RadioButton.Content>
+        </RadioButton>
+
+        <CheckBox Grid.Column="1" x:Name="cbAnswer4"  Height="35"  HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Foreground="Black" IsChecked="False"  Grid.ColumnSpan="2" Width="550" Grid.Row="4" IsEnabled="True">
+            <CheckBox.Content>
+                <Border BorderBrush="{x:Null}" Height="35" Width="550">
+                    <TextBlock Name="txtcbAnswer4" Text="Sample Question"  Width="540"  TextWrapping="Wrap"  Height="33"  VerticalAlignment="Center" />
+                </Border>
+            </CheckBox.Content>
+        </CheckBox>
+
+        <RadioButton Grid.Column="1" x:Name="rbAnswer4" Height="35"  HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Foreground="Black" IsChecked="False"  Grid.ColumnSpan="2" Width="550" Grid.Row="4" IsEnabled="True">
+            <RadioButton.Content>
+                <Border BorderBrush="{x:Null}" Height="35" Width="550">
+                    <TextBlock Name="txtrbAnswer4" Text="Sample Question"  Width="540"  TextWrapping="Wrap"  Height="33"  VerticalAlignment="Top"/>
+                </Border>
+            </RadioButton.Content>
+        </RadioButton>
+
+        <Label Content="Explanation:" FontSize="11" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black"  Grid.Row="6" Grid.Column="1" Margin="0,29,0,0" />
+        <TextBox x:Name="txtExplanation" IsReadOnly="False"  Style="{StaticResource SmallTextbox}" FontSize="12" Text=""  HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Grid.Row="6" Margin="0,52,0,0" Grid.ColumnSpan="2" Width="574" Height="165" Grid.Column="1" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" AcceptsTab="True" />
+
+        <Button x:Name="btnUpdateExplanation" FontSize="10" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Row="6" Grid.Column="2" Width="92" Click="btnUpdateExplanation_Click" Margin="362,225,0,0" Height="20" />
+
+        <Button x:Name="btnSubmit" IsDefault="True" Content="Submit" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Row="6" Grid.Column="2" Width="84" Margin="162,241,0,0" Click="btnSubmit_Click" />
+        <Button x:Name="btnPrev" Content="Previous" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Row="6" Grid.Column="2" Width="92" Click="btnPrev_Click" Margin="110,281,0,0" />
+        <Button x:Name="btnNext" Content="Next" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Row="6" Grid.Column="2" Width="92" Click="btnNext_Click" Margin="217,281,0,0" />
+        <Button x:Name="btnImportFromFile" FontSize="9" Height="20" Content="Import" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Row="6" Grid.Column="1" Width="80" Click="btnImportFromFile_Click" Margin="0,231,0,0" />
+        <Button x:Name="btnRedoQuestions" FontSize="9" Height="20"  Content="Reload Qs" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Row="6" Grid.Column="1" Width="80" Click="btnRedoQuestions_Click" Margin="0,256,0,0" />
+        <CheckBox x:Name="chkRandomOrder" Grid.Column="2" FontSize="9" HorizontalAlignment="Left" Margin="263,75,0,0" VerticalAlignment="Top">
+            <TextBlock VerticalAlignment="Top" FontWeight="Bold"><Run Text="Random Order"/></TextBlock>
+        </CheckBox>
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecordMyStats2.BLL.Simple", "RecordMyStats2.BLL.Simple.csproj", "{A2384CBD-030F-4010-BA49-7F160E31DA99}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5FACEADA-9C01-4B29-9055-A03A16D54C86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecordMyStats2.Common.Simple", "..\RecordMyStats.Common\RecordMyStats2.Common.Simple.csproj", "{EE370A05-8E49-4D6B-9AE5-D5D275C86263}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2384CBD-030F-4010-BA49-7F160E31DA99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2384CBD-030F-4010-BA49-7F160E31DA99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2384CBD-030F-4010-BA49-7F160E31DA99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2384CBD-030F-4010-BA49-7F160E31DA99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE370A05-8E49-4D6B-9AE5-D5D275C86263}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE370A05-8E49-4D6B-9AE5-D5D275C86263}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE370A05-8E49-4D6B-9AE5-D5D275C86263}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE370A05-8E49-4D6B-9AE5-D5D275C86263}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {060E9FCF-75F5-4D0E-BEE0-9F34EE04B244}
+	EndGlobalSection
+EndGlobal

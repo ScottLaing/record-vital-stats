@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Utility\**" />
+    <EmbeddedResource Remove="Utility\**" />
+    <None Remove="Utility\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Constants.cs" />
+    <Compile Remove="Dto\AddBloodPressureEntryDto.cs" />
+    <Compile Remove="Dto\AddBloodSugarEntryDto.cs" />
+    <Compile Remove="Dto\AddEntryDto.cs" />
+    <Compile Remove="Dto\GetBloodSugarEntriesResultDto.cs" />
+    <Compile Remove="Dto\GetEntriesParamsDto.cs" />
+    <Compile Remove="Dto\GetEntriesResultDto.cs" />
+    <Compile Remove="Dto\GetNoteEntriesParamsDto.cs" />
+    <Compile Remove="Dto\GetNoteEntriesResultDto.cs" />
+    <Compile Remove="Dto\MemberResultDto.cs" />
+    <Compile Remove="Dto\SessionResultDto.cs" />
+    <Compile Remove="Entities\BloodPressure.cs" />
+    <Compile Remove="Entities\BloodSugar.cs" />
+    <Compile Remove="Entities\Session.cs" />
+    <Compile Remove="Entities\StatisticsEntry.cs" />
+    <Compile Remove="StatsConfig.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="country-codes.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+</Project>
