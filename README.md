@@ -25,8 +25,6 @@ The project is a windows desktop project to consume a web api, to save and retri
 
 ## Features  <a name="features"></a>
 
-* List of features 
-* ---------------- 
 * New User add window.
 * Login window.
 * Main window with menu.
@@ -50,7 +48,7 @@ Dev Notes for installation and setup.
 * Install sql server or postgres for your database, depending on preference. Can use LocalDb for development also.
 * Create a local database in SQL Server or Postgres.  See the database scripts in the Database project.
 
-## Usage  <a name="usage"></a>
+### Usage  <a name="usage"></a>
 
 For local development you will need to:
 
