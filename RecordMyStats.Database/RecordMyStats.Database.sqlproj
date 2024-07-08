@@ -62,9 +62,6 @@
     <Folder Include="dbo\Tables\" />
     <Folder Include="Scripts" />
     <Folder Include="Scripts\PostDeployment" />
-    <Folder Include="Scripts\postgres" />
-    <Folder Include="Scripts\postgres\dbo" />
-    <Folder Include="Scripts\postgres\data" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Member.sql" />
@@ -79,17 +76,11 @@
     <None Include="Scripts\PostDeployment\Note.sql" />
     <None Include="Scripts\PostDeployment\Session.sql" />
     <None Include="Scripts\PostDeployment\StatisticEntry.sql" />
-    <None Include="Scripts\postgres\dbo\Member.sql" />
-    <None Include="Scripts\postgres\data\Member.sql" />
-    <None Include="Scripts\postgres\dbo\StatisticEntry.sql" />
-    <None Include="Scripts\postgres\dbo\Note.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment1.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="RecordMyStats.Database.publish.xml" />
-    <None Include="Scripts\postgres\dbo\Session.sql" />
-    <None Include="Scripts\postgres\dbo\BloodSugar.sql" />
   </ItemGroup>
 </Project>

@@ -2,8 +2,9 @@
 -- postgres Member Table
 --------------------------------
 
+DROP TABLE IF EXISTS public.Session;
 
-CREATE TABLE public.Session(
+CREATE TABLE public.Session (
 	Id SERIAL PRIMARY KEY,
 	MemberId int NOT NULL,
 	SessionKey varchar(50) NOT NULL,

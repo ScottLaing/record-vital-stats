@@ -1,7 +1,10 @@
 ﻿----------------------------------
 ---- postgres Member Table
 ----------------------------------
-CREATE TABLE public.Member(
+
+DROP TABLE IF EXISTS public.Member;
+
+CREATE TABLE public.Member (
 	Id SERIAL PRIMARY KEY,
 	FirstName varchar(50) NULL,
 	LastName varchar(50) NULL,

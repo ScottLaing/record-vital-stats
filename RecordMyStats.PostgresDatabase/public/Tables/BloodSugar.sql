@@ -2,6 +2,8 @@
 ---- postgres BloodSugar Table
 ----------------------------------
 
+DROP TABLE IF EXISTS public.BloodSugar;
+
 CREATE TABLE public.BloodSugar (
 	Id SERIAL PRIMARY KEY,
 	MemberId int NOT NULL,

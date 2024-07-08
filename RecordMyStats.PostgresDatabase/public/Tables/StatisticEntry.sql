@@ -2,6 +2,8 @@
 ---- postgres StatisticEntry Table
 ----------------------------------
 
+DROP TABLE IF EXISTS public.StatisticEntry;
+
 CREATE TABLE public.StatisticEntry (
 	Id  SERIAL PRIMARY KEY,
 	MemberId int NOT NULL,

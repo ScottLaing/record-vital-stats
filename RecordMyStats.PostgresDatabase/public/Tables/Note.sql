@@ -1,6 +1,9 @@
 ﻿----------------------------------
 ---- postgres Note Table
 ----------------------------------
+
+DROP TABLE IF EXISTS public.Note;
+
 CREATE TABLE public.Note (
 	Id SERIAL PRIMARY KEY,
 	Description varchar(255) NULL,

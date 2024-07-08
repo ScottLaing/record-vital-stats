@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecordMyStats.BLL", "Record
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "RecordMyStats.Database", "RecordMyStats.Database\RecordMyStats.Database.sqlproj", "{0D3B12C5-015C-4998-B11A-AE0AC7F5B662}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecordMyStats.PostgresDatabase", "RecordMyStats.PostgresDatabase\RecordMyStats.PostgresDatabase.csproj", "{AC3BBEC0-D668-427D-9967-3FE3342303F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{0D3B12C5-015C-4998-B11A-AE0AC7F5B662}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D3B12C5-015C-4998-B11A-AE0AC7F5B662}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0D3B12C5-015C-4998-B11A-AE0AC7F5B662}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{AC3BBEC0-D668-427D-9967-3FE3342303F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC3BBEC0-D668-427D-9967-3FE3342303F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC3BBEC0-D668-427D-9967-3FE3342303F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC3BBEC0-D668-427D-9967-3FE3342303F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
