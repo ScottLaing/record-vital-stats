@@ -15,11 +15,14 @@ CREATE TABLE public.Note (
 	Key2 varchar(100) NULL,
 	Salt varchar(40) NULL,
 	IsEncrypted boolean NULL,
-	MemberId int NULL);
+	MemberId int NULL,
+	ModifiedDate timestamp NOT NULL);
 
 ALTER TABLE public.Note ALTER COLUMN IsActive SET DEFAULT TRUE;
 
 ALTER TABLE public.Note ALTER COLUMN Created SET DEFAULT CURRENT_TIMESTAMP;
+
+ALTER TABLE public.Note ALTER COLUMN ModifiedDate SET DEFAULT CURRENT_TIMESTAMP;
 
 CREATE INDEX Idx_Note_MemberId ON public.Note (MemberId);
 

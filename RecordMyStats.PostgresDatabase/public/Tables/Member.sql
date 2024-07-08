@@ -17,18 +17,15 @@ CREATE TABLE public.Member (
 	Zip varchar(8) NULL,
 	Country varchar(50) NULL,
 	CreateDate timestamp NULL,
-	ModDate timestamp NULL,
-	ModBy varchar(15) NULL);
+	ModBy varchar(15) NULL,
+	ModifiedDate timestamp NOT NULL);
 
 ALTER TABLE public.Member ALTER COLUMN CreateDate SET DEFAULT CURRENT_TIMESTAMP;
 
-
-ALTER TABLE public.Member ALTER COLUMN ModDate SET DEFAULT CURRENT_TIMESTAMP;
-
-
 ALTER TABLE public.Member ALTER COLUMN ModBy SET DEFAULT 'system';
 
+ALTER TABLE public.Member ALTER COLUMN ModifiedDate SET DEFAULT CURRENT_TIMESTAMP;
 
-CREATE INDEX idx_Member_Email ON public.Member (Email);
+CREATE INDEX Idx_Member_Email ON public.Member (Email);
 
 

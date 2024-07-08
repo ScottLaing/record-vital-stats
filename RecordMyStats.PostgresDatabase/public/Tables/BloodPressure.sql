@@ -16,8 +16,7 @@ CREATE TABLE public.BloodPressure (
 	Comments varchar(2000) NULL,
 	IsActive boolean NOT NULL,
 	CreateDate timestamp NOT NULL,
-	ModifiedDate timestamp NOT NULL
-	);
+	ModifiedDate timestamp NOT NULL);
 
 ALTER TABLE public.BloodPressure ALTER COLUMN BPUnits SET DEFAULT 'mmHg';
 

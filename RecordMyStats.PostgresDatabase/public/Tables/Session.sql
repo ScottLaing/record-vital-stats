@@ -1,5 +1,5 @@
 ﻿-------------------------------
--- postgres Member Table
+-- postgres Session Table
 --------------------------------
 
 DROP TABLE IF EXISTS public.Session;
@@ -15,12 +15,9 @@ CREATE TABLE public.Session (
 
 ALTER TABLE public.Session ALTER COLUMN CreateDate SET DEFAULT CURRENT_TIMESTAMP;
 
-
 ALTER TABLE public.Session ALTER COLUMN Platform SET DEFAULT 'rest';
 
-
 ALTER TABLE public.Member ALTER COLUMN IsActive SET DEFAULT TRUE;
-
 
 CREATE INDEX idx_Session_MemberId ON public.Session (MemberId);
 
