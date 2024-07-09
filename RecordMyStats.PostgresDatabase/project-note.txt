@@ -1,0 +1,18 @@
+﻿---------------------------------------------------
+Note about RecordMyStats.PostgresDatabase project
+---------------------------------------------------
+
+So note that there is no "postgres database project" in visual studio (that I know about - send me an email if you know of one) which 
+can be used to publish a database, similar to the visual studio database project which works with sql server and compatible 
+(e.g. local db) databases. That normal db project <em>can</em> be published to create a new database.  
+
+This project here is not that kind of db project.
+
+This project is simply a storage container type project (technically using a Class Library project type) which is now being used 
+to store the database scripts for postgres.
+
+You can use these script files in this project to create new database and tables for postgres.  
+
+Currently you would need to run these scripts in a postgres database management tool like pgAdmin or psql.
+
+Scott
