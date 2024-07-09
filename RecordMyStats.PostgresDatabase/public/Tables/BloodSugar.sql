@@ -1,4 +1,5 @@
-﻿----------------------------------
+﻿
+----------------------------------
 ---- postgres BloodSugar Table
 ----------------------------------
 
@@ -28,7 +29,7 @@ ALTER TABLE public.BloodSugar ALTER COLUMN RecordingDate SET DEFAULT CURRENT_TIM
 
 ALTER TABLE public.BloodSugar ALTER COLUMN ModifiedDate SET DEFAULT CURRENT_TIMESTAMP;
 
-CREATE INDEX idx_BloodSugar_Email ON public.BloodSugar (Email);
+CREATE INDEX idx_BloodSugar_MemberId ON public.BloodSugar (MemberId);
 
 
 
