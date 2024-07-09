@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>RecordMyStats.Database</Name>
+    <Name>RecordMyStats.SqlServerDatabase</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{0d3b12c5-015c-4998-b11a-ae0ac7f5b662}</ProjectGuid>
