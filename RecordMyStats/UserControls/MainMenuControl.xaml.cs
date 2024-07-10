@@ -114,5 +114,27 @@ namespace RecordMyStats.UserControls
             questionsWindow.Show();
 
         }
+
+        private void mniBloodPressure_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(SessionKey))
+            {
+                MessageBox.Show("trouble getting session key from parent window");
+                return;
+            }
+            var bloodPressureWindow = new BloodPressureWindow(SessionKey, FullName, Token);
+            bloodPressureWindow.Show();
+        }
+
+        private void mniBloodPressureView_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(SessionKey))
+            {
+                MessageBox.Show("trouble getting blood sugar session key from parent window");
+                return;
+            }
+            var bloodPressureViewWindow = new BloodPressureViewWindow(SessionKey, FullName, Token);
+            bloodPressureViewWindow.Show();
+        }
     }
 }

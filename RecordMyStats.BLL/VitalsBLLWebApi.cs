@@ -403,5 +403,41 @@ namespace RecordMyStats.BLL
         {
             throw new NotImplementedException();
         }
+
+        public List<BloodPressure>? GetBloodPressureEntriesBySessionKey(string sessionKey, string token, out string errors)
+        {
+            bool wereEntriesFound = false;
+            var resultDto = new GetBloodPressureEntriesResultDto();
+
+            List<BloodPressure>? entriesFound = new List<BloodPressure>();
+
+            errors = "";
+            using (var client = new HttpClient())
+            {
+                var encodedSession = HttpUtility.HtmlEncode(sessionKey);
+                try
+                {
+                    string returnResult = HttpUtils.SetupAndCallApiNoBody(client, true, "Entry/GetBloodPressureEntriesBySessionKey", $"sessionKey={encodedSession}", token);
+
+                    resultDto = JsonConvert.DeserializeObject<GetBloodPressureEntriesResultDto>(returnResult);
+                    wereEntriesFound = resultDto.Result;
+                    entriesFound = resultDto.Entries;
+                    errors = resultDto.Errors ?? "";
+
+                }
+                catch (Exception ex)
+                {
+                    wereEntriesFound = false;
+                    errors = $"trouble getting statistic entries, error: {ex.Message}";
+                }
+            }
+
+            return entriesFound;
+        }
+
+        public List<BloodPressure>? GetBloodPressureEntriesBySessionKey(string sessionKey, DateTime fromDate, DateTime toDate, string token, out string errors)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

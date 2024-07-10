@@ -142,6 +142,16 @@ namespace RecordMyStats.BLL
             errors = errorsOut;
             return result;
         }
+
+        public List<BloodPressure>? GetBloodPressureEntriesBySessionKey(string sessionKey, string token, out string errors)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<BloodPressure>? GetBloodPressureEntriesBySessionKey(string sessionKey, DateTime fromDate, DateTime toDate, string token, out string errors)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

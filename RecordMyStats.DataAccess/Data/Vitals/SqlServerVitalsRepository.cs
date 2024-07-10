@@ -1456,6 +1456,11 @@ namespace RecordMyStats.DataAccess.Data.Vitals
             }
             return result;
         }
+
+        public List<BloodPressure>? GetBloodPressureEntriesBySessionKey(string sessionKey, out string errors)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

@@ -100,6 +100,31 @@ namespace RecordMyStats.WebApi2.Controllers
         }
 
         [Authorize]
+        [HttpPost("GetBloodPressureEntriesBySessionKey")]
+        public ActionResult<GetBloodSugarEntriesResultDto> GetBloodPressureEntriesBySessionKey(string sessionKey)
+        {
+            if (sessionKey == null)
+            {
+                var missingParamsResult = new GetEntriesResultDto()
+                {
+                    Errors = Constants.RestStrings.RestParamsMissing,
+                    Result = false
+                };
+                return Unauthorized(missingParamsResult);
+            }
+            var result = repos.GetBloodPressureEntriesBySessionKey(sessionKey, out string errors);
+
+            var normalResult = new GetBloodPressureEntriesResultDto()
+            {
+                Entries = result,
+                Errors = errors,
+                Result = string.IsNullOrWhiteSpace(errors)
+            };
+
+            return Ok(normalResult);
+        }
+
+        [Authorize]
         [HttpPost("GetBloodSugarEntriesByRange")]
         public ActionResult<GetBloodSugarEntriesResultDto> GetBloodSugarEntriesByRange(GetEntriesParamsDto rangeParams)
         {
@@ -240,6 +265,33 @@ namespace RecordMyStats.WebApi2.Controllers
             }
 
             bool result = repos.AddBloodSugarEntry(addEntryDto.BloodSugarEntry, addEntryDto.SessionKey, out string errors);
+
+            // test call, wip stuff, verifying we can get info from the raw Token if required
+            var email1 = TokenUtility.GetEmailFromToken(Request, _configuration);
+
+            var successResult = new SimpleResultDto()
+            {
+                Errors = errors,
+                Result = result
+            };
+            return Ok(successResult);
+        }
+
+        [Authorize]
+        [HttpPost("AddBloodPressureEntry")]
+        public ActionResult<SimpleResultDto> AddBloodPressureEntry(AddBloodPressureEntryDto addEntryDto)
+        {
+            if (addEntryDto == null || addEntryDto.BloodPressureEntry == null || addEntryDto.SessionKey == null)
+            {
+                var missingParamsResult = new SimpleResultDto()
+                {
+                    Errors = Constants.RestStrings.RestParamsMissing,
+                    Result = false
+                };
+                return Unauthorized(missingParamsResult);
+            }
+
+            bool result = repos.AddBloodPressureEntry(addEntryDto.BloodPressureEntry, addEntryDto.SessionKey, out string errors);
 
             // test call, wip stuff, verifying we can get info from the raw Token if required
             var email1 = TokenUtility.GetEmailFromToken(Request, _configuration);

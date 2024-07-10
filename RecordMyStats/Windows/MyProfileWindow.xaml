@@ -33,18 +33,22 @@
 
         <Label Content="Name:" HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,0,0,0" Foreground="#BB9457" FontWeight="Bold" Grid.Column="1" />
         <TextBox x:Name="txtFirstName" Text="Steven Spielberg"  HorizontalAlignment="Left" Style="{StaticResource UserPropertiesTextbox}"  VerticalAlignment="Top" Grid.Column="1" Margin="100,7,0,0" Grid.ColumnSpan="2"  />
+        
         <Label Content="Email:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Padding="50,3,0,0"  Grid.Column="1" Grid.RowSpan="2"  Foreground="#BB9457" FontWeight="Bold" />
         <TextBox x:Name="txtEmail"  HorizontalAlignment="Left" Style="{StaticResource UserPropertiesTextbox}" Text="steves@dreamworks.com" VerticalAlignment="Top" Grid.Column="1" Margin="100,5,0,0" Grid.ColumnSpan="2" Grid.Row="1"  />
-        <Label Content="Created:"  Foreground="#BB9457" FontWeight="Bold" VerticalAlignment="Top" Grid.Row="2"  Grid.Column="1" Grid.RowSpan="2" Margin="34,0,0,0" />
-        <TextBox x:Name="txtAccountCreated"  HorizontalAlignment="Left" Style="{StaticResource UserPropertiesTextbox}" Text="03-02-2004" VerticalAlignment="Top" Grid.Column="1" Margin="100,7,0,0" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="2"  />
-        <Label Content="Country:" HorizontalAlignment="Left"  Foreground="#BB9457" FontWeight="Bold" VerticalAlignment="Top"  Margin="34,0,0,0" Grid.Row="3" Grid.Column="1" Grid.RowSpan="2" />
-        <TextBox x:Name="txtCountry"  HorizontalAlignment="Left" Style="{StaticResource UserPropertiesTextbox}" Text="United States of America" VerticalAlignment="Top" Grid.Column="1" Margin="100,7,0,0" Grid.ColumnSpan="2" Grid.Row="3"  />
 
-        <Label Content="Date of Birth:" HorizontalAlignment="Left"  Foreground="#BB9457" FontWeight="Bold" VerticalAlignment="Top"  Margin="0,0,0,0" Grid.Row="4" Grid.Column="1" Grid.RowSpan="2" />
-        <TextBox x:Name="txtDOB"  HorizontalAlignment="Left" Style="{StaticResource UserPropertiesTextbox}" Text="01-01-1985" VerticalAlignment="Top" Grid.Column="1" Margin="100,7,0,0" Grid.ColumnSpan="2" Grid.Row="4"  />
+        <Label Content="Sex:" HorizontalAlignment="Left"  Foreground="#BB9457" FontWeight="Bold" VerticalAlignment="Top"  Margin="60,0,0,0" Grid.Column="1" Grid.RowSpan="2" Grid.Row="2"  />
+        <TextBox x:Name="txtSex"  HorizontalAlignment="Left" Style="{StaticResource UserPropertiesTextbox}" Text="M" VerticalAlignment="Top" Grid.Column="1" Margin="100,7,0,0" Grid.ColumnSpan="2" Grid.Row="2"  />
 
-        <Label Content="Sex:" HorizontalAlignment="Left"  Foreground="#BB9457" FontWeight="Bold" VerticalAlignment="Top"  Margin="60,0,0,0" Grid.Row="5" Grid.Column="1" Grid.RowSpan="2" />
-        <TextBox x:Name="txtSex"  HorizontalAlignment="Left" Style="{StaticResource UserPropertiesTextbox}" Text="M" VerticalAlignment="Top" Grid.Column="1" Margin="100,7,0,0" Grid.ColumnSpan="2" Grid.Row="5"  />
+        <Label Content="Date of Birth:" HorizontalAlignment="Left"  Foreground="#BB9457" FontWeight="Bold" VerticalAlignment="Top"  Margin="0,0,0,0" Grid.Row="3" Grid.Column="1" Grid.RowSpan="2" />
+        <TextBox x:Name="txtDOB"  HorizontalAlignment="Left" Style="{StaticResource UserPropertiesTextbox}" Text="01-01-1985" VerticalAlignment="Top" Grid.Column="1" Margin="100,7,0,0" Grid.ColumnSpan="2" Grid.Row="3"  />
+
+        <Label Content="Country:" HorizontalAlignment="Left"  Foreground="#BB9457" FontWeight="Bold" VerticalAlignment="Top"  Margin="34,0,0,0" Grid.Row="4" Grid.Column="1" Grid.RowSpan="2" />
+        <TextBox x:Name="txtCountry"  HorizontalAlignment="Left" Style="{StaticResource UserPropertiesTextbox}" Text="United States of America" VerticalAlignment="Top" Grid.Column="1" Margin="100,7,0,0" Grid.ColumnSpan="2" Grid.Row="4"  />
+
+        <Label Content="Created:"  Foreground="#BB9457" FontWeight="Bold" VerticalAlignment="Top" Grid.Row="5"  Grid.Column="1" Grid.RowSpan="2" Margin="34,0,0,0" />
+        <TextBox x:Name="txtAccountCreated"  HorizontalAlignment="Left" Style="{StaticResource UserPropertiesTextbox}" Text="03-02-2004" VerticalAlignment="Top" Grid.Column="1" Margin="100,7,0,0" Grid.ColumnSpan="2" Grid.Row="5" Grid.RowSpan="2"  />
+
 
     </Grid>
 </Window>

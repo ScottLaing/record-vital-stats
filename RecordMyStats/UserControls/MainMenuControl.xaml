@@ -21,9 +21,9 @@
                         <Image Source="/RecordMyStats;component/Images/Health_16x.png" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem x:Name="mniRecordStats" Header="_Combined" Margin="0,0,0,0"  Click="mniRecordStats_Click" >
+                <MenuItem x:Name="mniBloodPressure" Header="Blood _Pressure" Margin="0,0,0,0"  Click="mniBloodPressure_Click" >
                     <MenuItem.Icon>
-                        <Image Source="/RecordMyStats;component/Images/RecordStep_16x.png" />
+                        <Image Source="/RecordMyStats;component/Images/Health_16x.png" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="mniNote" Header="_Note" Margin="0,0,0,0"  Click="mniNote_Click" >
@@ -38,9 +38,9 @@
                         <Image Source="/RecordMyStats;component/Images/Health_16x.png" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem x:Name="mniViewStats" Header="_Combined" Click="mniViewStats_Click" >
+                <MenuItem x:Name="mniBloodPressureView" Header="Blood _Pressure" Margin="0,0,0,0"  Click="mniBloodPressureView_Click" >
                     <MenuItem.Icon>
-                        <Image Source="/RecordMyStats;component/Images/InvokeTable_16x.png" />
+                        <Image Source="/RecordMyStats;component/Images/Health_16x.png" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="mniViewNotes" Header="_Notes" Click="mniViewNotes_Click" >
