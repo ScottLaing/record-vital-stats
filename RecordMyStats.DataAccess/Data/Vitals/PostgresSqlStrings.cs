@@ -151,7 +151,7 @@ namespace RecordMyStats.DataAccess.Data.Vitals
                                ,@Units
                                ,@WhenTaken
                                ,TRUE
-                               ,@CreateDate";
+                               ,@CreateDate)";
 
 
         public static string UpdateSessionsDeactivate = @"UPDATE public.Session

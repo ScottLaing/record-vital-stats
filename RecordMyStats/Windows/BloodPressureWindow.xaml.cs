@@ -25,11 +25,13 @@ public partial class BloodPressureWindow : Window
         _token = token;
 
         cmbBloodPressureUnits.Items.Add("mmHg");
-        cmbBloodPressureUnits.SelectedIndex = 1;
+        cmbBloodPressureUnits.SelectedIndex = 0;
 
         cmbWhenMeasured.Items.Add("Morning");
         cmbWhenMeasured.Items.Add("During the day");
         cmbWhenMeasured.Items.Add("Before sleep");
+
+        rbEntryTimeNow_Checked(null, null);
     }
 
     private void UpdateTime()
@@ -141,8 +143,18 @@ public partial class BloodPressureWindow : Window
 
     private void rbEntryTimeNow_Checked(object sender, RoutedEventArgs e)
     {
-        this.dpDate.IsEnabled = false;
-        this.txtTime.IsEnabled = false;
+        try
+        {
+            if (this.dpDate != null)
+            {
+                this.dpDate.IsEnabled = false;
+                this.txtTime.IsEnabled = false;
+            }
+        }
+        catch (Exception ex)
+        {
+            //MessageBox.Show(ex.Message, Constants.AppGlobal.ApplicationName);
+        }
     }
 
     private void rbEntryTimeCustom_Checked(object sender, RoutedEventArgs e)

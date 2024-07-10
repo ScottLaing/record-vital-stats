@@ -29,25 +29,25 @@
         </Grid.ColumnDefinitions>
 
         <Label x:Name="txtFullName" Content="FirstName LastName logged in" Foreground="Cyan" HorizontalAlignment="Right" VerticalAlignment="Top"  Margin="0,0,0,0" Grid.Column="2" Grid.ColumnSpan="2" FontStyle="Italic" FontSize="12"/>
-        <Label Content="Measuring Time:" HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,28,0,0" Grid.Column="1" Width="114" Foreground="#FF030440" />
 
-        <Label Content="/" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" Margin="44,1,0,0" Grid.Column="2" Width="19" Grid.Row="2"/>
-
+        <Label Content="Measuring Time:" HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,25,0,0" Grid.Column="1" Width="114" Foreground="#FF030440" />
+        <RadioButton Grid.Column="2" x:Name="rbEntryTimeNow" Content="Now" HorizontalAlignment="Left" Margin="7,36,0,0" VerticalAlignment="Top" Foreground="Black" IsChecked="True" Checked="rbEntryTimeNow_Checked"/>
+        <RadioButton Grid.Column="2" x:Name="rbEntryTimeCustom" Content="" HorizontalAlignment="Left" Margin="7,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,0.047" Checked="rbEntryTimeCustom_Checked"/>
         <DatePicker x:Name="dpDate" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Width="102" Margin="28,55,0,0"/>
         <TextBox x:Name="txtTime" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="63"  Grid.Column="2" Text="" Margin="146,57,0,0"/>
         <Button x:Name="btnRefreshTime" Content="Refresh Time" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Column="3" Click="btnRefreshTime_Click" Width="108" Margin="78,36,0,0" Grid.RowSpan="2" Grid.Row="5" Visibility="Hidden"/>
 
         <Label Content="Blood Pressure:" HorizontalAlignment="Left" VerticalAlignment="Top"   Grid.Row="2" Grid.Column="1" Margin="11,1,0,0" Foreground="#FF030440" />
-
         <TextBox x:Name="txtBloodPressureSystolic" Style="{StaticResource SmallTextbox2}" Text="135"  HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Grid.Row="2" Grid.Column="2" Margin="10,5,0,0"/>
+        <Label Content="/" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" Margin="44,1,0,0" Grid.Column="2" Width="19" Grid.Row="2"/>
         <TextBox x:Name="txtBloodPressureDiastolic" Style="{StaticResource SmallTextbox2}" Text="85"  HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Grid.Row="2" Grid.Column="2" Margin="60,5,0,0" />
-        <ComboBox x:Name="cmbBloodPressureUnits" Grid.Column="2" HorizontalAlignment="Left" Margin="134,5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="76"/>
 
-        <Button x:Name="btnRecord" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" Width="92" Click="btnRecord_Click" />
-        <RadioButton Grid.Column="2" x:Name="rbEntryTimeNow" Content="Now" HorizontalAlignment="Left" Margin="7,36,0,0" VerticalAlignment="Top" Foreground="Black" IsChecked="True" Checked="rbEntryTimeNow_Checked"/>
-        <RadioButton Grid.Column="2" x:Name="rbEntryTimeCustom" Content="" HorizontalAlignment="Left" Margin="7,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,0.047" Checked="rbEntryTimeCustom_Checked"/>
+        <ComboBox x:Name="cmbBloodPressureUnits" Grid.Column="2" HorizontalAlignment="Left" Margin="134,5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="76"/>
+        
         <Label Content="When Measured:" HorizontalAlignment="Center" VerticalAlignment="Top"   Grid.Row="3" Grid.Column="1" Foreground="#FF030440" />
         <ComboBox x:Name="cmbWhenMeasured" Grid.Column="2" HorizontalAlignment="Left" Margin="10,3,0,0" Grid.Row="3" VerticalAlignment="Top" Width="199"/>
+
+        <Button x:Name="btnRecord" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Top"  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" Width="92" Click="btnRecord_Click" />
 
     </Grid>
 </Window>
