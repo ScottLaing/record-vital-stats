@@ -123,6 +123,8 @@ namespace RecordMyStats.DataAccess.Data.Vitals
                                ,Units
                                ,WhenTaken
                                ,IsActive
+                               ,Mood
+                               ,Comments
                                ,CreateDate
                                ,RecordingDate)
                          VALUES
@@ -131,6 +133,8 @@ namespace RecordMyStats.DataAccess.Data.Vitals
                                ,@Units
                                ,@WhenTaken
                                ,TRUE
+                               ,@Mood
+                               ,@Comments
                                ,@CreateDate
                                ,@RecordingDate)";
 

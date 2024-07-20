@@ -33,6 +33,14 @@ public partial class BloodSugarWindow : Window
         cmbWhenMeasured.Items.Add("2 Hours After Meal");
         cmbWhenMeasured.Items.Add("1 Hour After Meal");
         cmbWhenMeasured.Items.Add("15 Mins After Meal");
+
+        cmbMood.Items.Add("No Selection");
+        cmbMood.Items.Add("Happy");
+        cmbMood.Items.Add("Okay");
+        cmbMood.Items.Add("Sad");
+        cmbMood.Items.Add("Tired");
+        cmbMood.SelectedIndex = 1;
+
     }
 
     private void UpdateTime()
@@ -110,7 +118,9 @@ public partial class BloodSugarWindow : Window
             Units = bsUnits ?? "",
             RecordingDate = newDateTime,
             CreateDate = DateTime.Now,
-            WhenTaken = whenMeasured
+            WhenTaken = whenMeasured,
+            Mood = cmbMood.SelectedIndex,
+            Comments = txtComments.Text
         };
 
         bool success = vitalsBLL.AddBloodSugarEntry(entry, _sessionKey, _token, out string addEntryErrors);

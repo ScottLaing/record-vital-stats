@@ -8,7 +8,7 @@
         Icon="\Images\RecordStep_16x.png"
         Background="#ddbea9"
         xmlns:local2="clr-namespace:RecordMyStats.UserControls"
-        Title="Record My Stats" Height="293" Width="363" ResizeMode="CanMinimize">
+        Title="Record My Stats" Height="460" Width="380" ResizeMode="CanMinimize">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -17,6 +17,7 @@
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
 
@@ -41,11 +42,20 @@
         <TextBox x:Name="txtBloodSugar" Style="{StaticResource SmallTextbox}" Text="110"  HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Grid.Row="2" Grid.Column="1" Margin="90,10,0,0" Grid.ColumnSpan="2" />
         <ComboBox x:Name="cmbBloodSugarUnits" Grid.Column="2" HorizontalAlignment="Left" Margin="19,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="72"/>
 
-        <Button x:Name="btnRecord" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" Width="92" Click="btnRecord_Click" />
         <RadioButton Grid.Column="1" x:Name="rbEntryTimeNow" Content="Now" HorizontalAlignment="Left" Margin="46,44,0,0" VerticalAlignment="Top" Foreground="White" IsChecked="True" Checked="rbEntryTimeNow_Checked"/>
         <RadioButton Grid.Column="1" x:Name="rbEntryTimeCustom" Content="" HorizontalAlignment="Left" Margin="46,67,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,0.047" Checked="rbEntryTimeCustom_Checked"/>
         <Label Content="When Measured:" HorizontalAlignment="Left" VerticalAlignment="Top"   Grid.Row="3" Grid.Column="1" Margin="1,1,0,0" />
         <ComboBox x:Name="cmbWhenMeasured" Grid.Column="2" HorizontalAlignment="Left" Margin="10,3,0,0" Grid.Row="3" VerticalAlignment="Top" Width="199"/>
+
+        <Label Content="Mood:" HorizontalAlignment="Left" VerticalAlignment="Top"   Grid.Row="4" Grid.Column="1" Margin="1,1,0,0" />
+        <ComboBox x:Name="cmbMood" Grid.Column="2" HorizontalAlignment="Left" Margin="10,3,0,0" Grid.Row="4" VerticalAlignment="Top" Width="140"
+                 Height="25"/>
+
+        <Label Content="Comments:" HorizontalAlignment="Left" VerticalAlignment="Top"   Grid.Row="5" Grid.Column="1" Margin="1,1,0,0" />
+        <TextBox x:Name="txtComments" Grid.Column="2" HorizontalAlignment="Left" Margin="10,3,0,0" Grid.Row="5" VerticalAlignment="Top" Width="206"
+                 AcceptsReturn="True" TextWrapping="Wrap" Height="107" VerticalScrollBarVisibility="Auto"/>
+
+        <Button x:Name="btnRecord" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" Width="92" Click="btnRecord_Click" />
 
     </Grid>
 </Window>
