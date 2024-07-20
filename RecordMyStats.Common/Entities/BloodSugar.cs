@@ -1,4 +1,6 @@
-﻿namespace RecordMyStats.Common.Entities
+﻿using static RecordMyStats.Common.Constants;
+
+namespace RecordMyStats.Common.Entities
 {
     public class BloodSugar
     {
@@ -14,31 +16,11 @@
         {
             get
             {
-                string mood = "";
-                switch (Mood)
-                {
-                    case 0:
-                        mood = "No selection";
-                        break;
-                    case 1:
-                        mood = "No selection";
-                        break;
-                    case 2:
-                        mood = "Happy";
-                        break;
-                    case 3:
-                        mood = "Sad";
-                        break;
-                    case 4:
-                        mood = "Tired";
-                        break;
-                    default:
-                        mood = "No selection";
-                        break;
-                }
+                string mood = MoodMapDictionary.ContainsKey(Mood) ? MoodMapDictionary[Mood] : NoSelection;
                 return mood;
             }
         }
+
         public string Comments { get; set; } = "";
         public DateTime RecordingDate { get; set; }
         public bool IsActive { get; set; }

@@ -34,13 +34,9 @@ public partial class BloodSugarWindow : Window
         cmbWhenMeasured.Items.Add("1 Hour After Meal");
         cmbWhenMeasured.Items.Add("15 Mins After Meal");
 
-        cmbMood.Items.Add("No Selection");
-        cmbMood.Items.Add("Happy");
-        cmbMood.Items.Add("Okay");
-        cmbMood.Items.Add("Sad");
-        cmbMood.Items.Add("Tired");
-        cmbMood.SelectedIndex = 1;
+        Constants.MoodMapDictionary.Values.ToList().ForEach(s => cmbMood.Items.Add(s));
 
+        cmbMood.SelectedIndex = 0;
     }
 
     private void UpdateTime()

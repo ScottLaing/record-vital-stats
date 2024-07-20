@@ -25,6 +25,17 @@ namespace RecordMyStats.Common
             public const int TokenExpireMinutes = 0;
         }
 
+        public const string NoSelection = "No selection";
+
+        public readonly static Dictionary<int, string> MoodMapDictionary = new Dictionary<int, string>()
+        {
+            { 0, NoSelection },
+            { 1, "Happy" },
+            { 2, "Okay" },
+            { 3, "Sad" },
+            { 4, "Tired" },
+        };
+
         public class DisplayStrings
         {
             public static string NotAvailable = "N/A";
