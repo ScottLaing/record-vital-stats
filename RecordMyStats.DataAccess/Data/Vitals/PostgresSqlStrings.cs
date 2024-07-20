@@ -168,8 +168,8 @@ namespace RecordMyStats.DataAccess.Data.Vitals
                                   ,Value
                                   ,Units
                                   ,WhenTaken
-                                  ,Notes
-                                  ,MoodLevel
+                                  ,Comments
+                                  ,Mood
                                   ,CustomTime
                                   ,IsActive
                                   ,CreateDate

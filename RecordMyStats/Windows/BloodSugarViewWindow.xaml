@@ -40,6 +40,8 @@
                 <DataGridTextColumn Binding="{Binding Path=Value}" Header="Value"/>
                 <DataGridTextColumn Binding="{Binding Path=Units}" Header="Units"/>
                 <DataGridTextColumn Binding="{Binding Path=WhenTaken}" Header="When Taken"/>
+                <DataGridTextColumn Binding="{Binding Path=MoodDisplay}" Header="Mood"/>
+                <DataGridTextColumn Binding="{Binding Path=Comments}" Header="Comments"/>
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="lblStatus" Foreground="Green" Grid.Column="1" FontSize="11" Content="X Rows Returned" HorizontalAlignment="Left" Margin="0,2,0,4" Grid.Row="6" VerticalAlignment="Bottom" Width="418"/>
