@@ -18,7 +18,7 @@
             <MenuItem Header="_Measure">
                 <MenuItem x:Name="mniBloodSugar" Header="_Blood Sugar" Margin="0,0,0,0"  Click="mniBloodSugar_Click" >
                     <MenuItem.Icon>
-                        <Image Source="/RecordMyStats;component/Images/Health_16x.png" />
+                        <Image Source="/RecordMyStats;component/Images/MountainChart_16x.png" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="mniBloodPressure" Header="Blood _Pressure" Margin="0,0,0,0"  Click="mniBloodPressure_Click" >
@@ -28,14 +28,14 @@
                 </MenuItem>
                 <MenuItem x:Name="mniNote" Header="_Note" Margin="0,0,0,0"  Click="mniNote_Click" >
                     <MenuItem.Icon>
-                        <Image Source="/RecordMyStats;component/Images/Health_16x.png" />
+                        <Image Source="/RecordMyStats;component/Images/Log_16x.png" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="_List">
                 <MenuItem x:Name="mniBloodSugarView" Header="_Blood Sugar" Margin="0,0,0,0"  Click="mniBloodSugarView_Click" >
                     <MenuItem.Icon>
-                        <Image Source="/RecordMyStats;component/Images/Health_16x.png" />
+                        <Image Source="/RecordMyStats;component/Images/MountainChart_16x.png" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="mniBloodPressureView" Header="Blood _Pressure" Margin="0,0,0,0"  Click="mniBloodPressureView_Click" >
@@ -45,7 +45,7 @@
                 </MenuItem>
                 <MenuItem x:Name="mniViewNotes" Header="_Notes" Click="mniViewNotes_Click" >
                     <MenuItem.Icon>
-                        <Image Source="/RecordMyStats;component/Images/InvokeTable_16x.png" />
+                        <Image Source="/RecordMyStats;component/Images/Log_16x.png" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>

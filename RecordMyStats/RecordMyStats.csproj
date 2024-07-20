@@ -16,6 +16,8 @@
     <None Remove="Images\Health_16x.png" />
     <None Remove="Images\InvokeTable_16x.png" />
     <None Remove="Images\Login_16x.png" />
+    <None Remove="Images\Log_16x.png" />
+    <None Remove="Images\MountainChart_16x.png" />
     <None Remove="Images\RecordStep_16x.png" />
   </ItemGroup>
 
@@ -33,6 +35,8 @@
     <Resource Include="Images\Health_16x.png" />
     <Resource Include="Images\InvokeTable_16x.png" />
     <Resource Include="Images\Login_16x.png" />
+    <Resource Include="Images\Log_16x.png" />
+    <Resource Include="Images\MountainChart_16x.png" />
     <Resource Include="Images\RecordStep_16x.png" />
   </ItemGroup>
 
