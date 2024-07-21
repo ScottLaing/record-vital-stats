@@ -30,6 +30,15 @@ namespace RecordMyStats.Common.Entities
             }
         }
 
+        public string ValueDisplay
+        {
+            get
+            {
+                string bloodPressureDisplay = string.Format("{0}/{1} {2}", (int)Systolic, (int)Diastolic, Units);
+                return bloodPressureDisplay;
+            }
+        }
+
         public string Comments { get; set; } = "";
         public string WhenTaken { get; set; } = "";
         public DateTime CreateDate { get; set; }

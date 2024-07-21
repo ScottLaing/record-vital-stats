@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RecordMyStats"
         mc:Ignorable="d"
-        Icon="\Images\RecordStep_16x.png"
+        Icon="\Images\Health_16x.png"
         Background="#ffe6a7"
         xmlns:local2="clr-namespace:RecordMyStats.UserControls"
         Title="Record My Stats" Height="450" Width="424" ResizeMode="CanMinimize">

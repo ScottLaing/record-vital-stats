@@ -15,7 +15,7 @@ public partial class BloodPressureViewWindow : Window
     {
         InitializeComponent();
         GlobalUISettings.AddToWindowsList(this);
-        this.Title = Constants.AppGlobal.ApplicationName + " - List Blood Sugar";
+        this.Title = Constants.AppGlobal.ApplicationName + " - List Blood Pressure";
       
         txtFullName.Content = fullName + " logged in.";
         _sessionKey = sessionKey;

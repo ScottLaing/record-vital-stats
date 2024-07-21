@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:RecordMyStats"
         xmlns:local2="clr-namespace:RecordMyStats.UserControls"
         mc:Ignorable="d"
-        Icon="\Images\RecordStep_16x.png"
-        Background="#6b705c"
+        Icon="\Images\MountainChart_16x.png"
+        Background="#6F1D1B"
         Title="List Blood Sugar" Height="370" Width="532" ResizeMode="CanResizeWithGrip">
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinHeight="5" MinWidth="5">
 

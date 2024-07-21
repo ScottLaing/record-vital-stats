@@ -1202,8 +1202,61 @@ namespace RecordMyStats.DataAccess.Data.Vitals
 
         public List<BloodPressure>? GetBloodPressureEntriesBySessionKey(string sessionKey, out string errors)
         {
-            throw new NotImplementedException();
+            errors = "";
+
+            int memberId = GetMemberIdBySessionKey(sessionKey, out string memberLookupErrors);
+            if (memberId == 0)
+            {
+                errors = "trouble saving entry - " + memberLookupErrors;
+                return null;
+            }
+
+            bool success = GetBloodPressureEntriesByMemberId(memberId, out List<BloodPressure>? stats, out string bloodSugarLookupErrors);
+            if (!success)
+            {
+                errors = "trouble getting entries - " + bloodSugarLookupErrors;
+                return null;
+            }
+            return stats;
         }
+
+        private bool GetBloodPressureEntriesByMemberId(int memberId, out List<BloodPressure>? stats, out string errors)
+        {
+            errors = "";
+            List<BloodPressure> bloodPressureList = new List<BloodPressure>();
+            stats = new List<BloodPressure>();
+
+            using (var connection = new NpgsqlConnection(ConnectionString))
+            {
+                var dictionary = new Dictionary<string, object>
+                {
+                    { "@MemberId", memberId }
+                };
+                var parameters = new DynamicParameters(dictionary);
+                try
+                {
+                    bloodPressureList = connection.Query<BloodPressure>(GetBloodPressureByMemberIdQueryString, parameters).ToList();
+                    if (!bloodPressureList.Any())
+                    {
+                        errors = "no blood pressure entries found";
+                        return true;
+                    }
+                    stats = bloodPressureList;
+                }
+                catch (InvalidOperationException ex)
+                {
+                    errors = "trouble retrieving blood pressure entries - " + ex.Message;
+                    return false;
+                }
+                catch (Exception ex)
+                {
+                    errors = "trouble retrieving blood pressure entries - " + ex.Message;
+                    return false;
+                }
+            }
+            return true;
+        }
+
     }
 }
 

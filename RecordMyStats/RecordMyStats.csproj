@@ -19,6 +19,7 @@
     <None Remove="Images\Log_16x.png" />
     <None Remove="Images\MountainChart_16x.png" />
     <None Remove="Images\RecordStep_16x.png" />
+    <None Remove="Images\UserWizard_16x.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +39,7 @@
     <Resource Include="Images\Log_16x.png" />
     <Resource Include="Images\MountainChart_16x.png" />
     <Resource Include="Images\RecordStep_16x.png" />
+    <Resource Include="Images\UserWizard_16x.png" />
   </ItemGroup>
 
   <ItemGroup>

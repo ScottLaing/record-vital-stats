@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:RecordMyStats"
         xmlns:local2="clr-namespace:RecordMyStats.UserControls"
         mc:Ignorable="d"
-        Icon="\Images\RecordStep_16x.png"
+        Icon="\Images\Health_16x.png"
         Background="#6b705c"
         Title="List Blood Sugar" Height="370" Width="532" ResizeMode="CanResizeWithGrip">
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinHeight="5" MinWidth="5">
@@ -37,9 +37,11 @@
         <DataGrid x:Name="dgResults" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="6" Margin="0,0,20,35" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinWidth="10" MinHeight="10" AlternatingRowBackground="#FFB0DBE6" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=RecordingDate}" Header="Recording Date"/>
-                <DataGridTextColumn Binding="{Binding Path=Value}" Header="Value"/>
-                <DataGridTextColumn Binding="{Binding Path=Units}" Header="Units"/>
-                <DataGridTextColumn Binding="{Binding Path=WhenTaken}" Header="When Taken"/>
+                <DataGridTextColumn Binding="{Binding Path=ValueDisplay}" Header="Blood Pressure"/>
+                <DataGridTextColumn Binding="{Binding Path=HeartRate}" Header="Heart Rate"/>
+                <DataGridTextColumn Binding="{Binding Path=WhenTaken}" Header="WhenTaken"/>
+                <DataGridTextColumn Binding="{Binding Path=MoodDisplay}" Header="Mood"/>
+                <DataGridTextColumn Binding="{Binding Path=Comments}" Header="Comments"/>
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="lblStatus" Foreground="Green" Grid.Column="1" FontSize="11" Content="X Rows Returned" HorizontalAlignment="Left" Margin="0,2,0,4" Grid.Row="6" VerticalAlignment="Bottom" Width="418"/>

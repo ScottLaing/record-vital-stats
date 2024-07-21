@@ -185,6 +185,23 @@ namespace RecordMyStats.DataAccess.Data.Vitals
                                     AND IsActive = TRUE
                               ORDER BY RecordingDate";
 
+        public static string GetBloodPressureByMemberIdQueryString = @"SELECT Id
+                                  ,MemberId
+                                  ,Systolic
+                                  ,Diastolic
+                                  ,Units
+                                  ,HeartRate
+                                  ,RecordingDate
+                                  ,Mood
+                                  ,Comments
+                                  ,WhenTaken
+                                  ,CreateDate
+                                  ,IsActive
+                              FROM public.BloodPressure
+                              WHERE MemberId = @MemberId 
+                                    AND IsActive = TRUE
+                              ORDER BY RecordingDate";
+
         public static string GetQuestionsIdQueryString =
                     @"SELECT  * FROM public.Question ";
 
