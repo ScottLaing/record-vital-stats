@@ -437,7 +437,36 @@ namespace RecordMyStats.BLL
 
         public List<BloodPressure>? GetBloodPressureEntriesBySessionKey(string sessionKey, DateTime fromDate, DateTime toDate, string token, out string errors)
         {
-            throw new NotImplementedException();
+            bool wereEntriesFound = false;
+            var resultDto = new GetBloodPressureEntriesResultDto();
+
+            List<BloodPressure>? entriesFound = new List<BloodPressure>();
+            var entryParams = new GetEntriesParamsDto();
+            entryParams.SessionKey = sessionKey;
+            entryParams.DateFrom = fromDate;
+            entryParams.DateTo = toDate;
+
+            errors = "";
+            using (var client = new HttpClient())
+            {
+                var encodedSession = HttpUtility.HtmlEncode(sessionKey);
+                try
+                {
+                    string returnResult = HttpUtils.SetupAndCallApi(client, true, entryParams, "Entry/GetBloodPressureEntriesByRange", token);
+
+                    resultDto = JsonConvert.DeserializeObject<GetBloodPressureEntriesResultDto>(returnResult);
+                    wereEntriesFound = resultDto.Result;
+                    entriesFound = resultDto.Entries;
+                    errors = resultDto.Errors ?? "";
+                }
+                catch (Exception ex)
+                {
+                    wereEntriesFound = false;
+                    errors = $"trouble retrieving statistic entries, error: {ex.Message}";
+                }
+            }
+
+            return entriesFound;
         }
     }
 }

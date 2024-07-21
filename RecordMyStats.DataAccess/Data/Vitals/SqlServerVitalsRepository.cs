@@ -1461,6 +1461,11 @@ namespace RecordMyStats.DataAccess.Data.Vitals
         {
             throw new NotImplementedException();
         }
+
+        public List<BloodPressure>? GetBloodPressureEntriesBySessionKey(string sessionKey, DateTime from, DateTime to, out string errors)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

@@ -68,7 +68,6 @@ public partial class BloodPressureViewWindow : Window
         dgResults.ItemsSource = results;
         lblStatus.Content = $"Entries count: {results?.Count}";
         lastLookupResults = results;
-
     }
 
     private void btnRecord_Click(object sender, RoutedEventArgs e)

@@ -49,6 +49,8 @@ namespace RecordMyStats.DataAccess.Data.Vitals
 
         List<BloodSugar>? GetBloodSugarEntriesBySessionKey(string sessionKey, DateTime from, DateTime to, out string errors);
 
+        List<BloodPressure>? GetBloodPressureEntriesBySessionKey(string sessionKey, DateTime from, DateTime to, out string errors);
+
         bool UpdateQuestion(Question question, string sessionKey, out string errorsOut);
     }
 }

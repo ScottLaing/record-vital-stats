@@ -241,6 +241,25 @@ namespace RecordMyStats.DataAccess.Data.Vitals
                                         AND IsActive = TRUE
                                 ORDER BY RecordingDate";
 
+        public static string GetBloodPressuresByMemberIdDateRangeQueryString = @"SELECT Id
+                                  ,MemberId
+                                  ,Systolic
+                                  ,Diastolic
+                                  ,Units
+                                  ,HeartRate
+                                  ,RecordingDate
+                                  ,Mood
+                                  ,Comments
+                                  ,WhenTaken
+                                  ,CreateDate
+                                  ,IsActive
+                              FROM public.BloodPressure
+                              WHERE MemberId = @MemberId 
+                                    AND IsActive = TRUE
+                                        AND RecordingDate >= @DateFrom AND RecordingDate <= @DateTo
+                                ORDER BY RecordingDate";
+
+
         public static string GetNotesByMemberIdDateRangeQueryString = @"SELECT Id
                                       ,Description
                                       ,FullText

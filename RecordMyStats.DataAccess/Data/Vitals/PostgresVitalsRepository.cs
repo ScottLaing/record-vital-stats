@@ -1235,13 +1235,73 @@ namespace RecordMyStats.DataAccess.Data.Vitals
                 var parameters = new DynamicParameters(dictionary);
                 try
                 {
-                    bloodPressureList = connection.Query<BloodPressure>(GetBloodPressureByMemberIdQueryString, parameters).ToList();
+                    bloodPressureList = connection.Query<BloodPressure>(GetBloodPressuresByMemberIdDateRangeQueryString, parameters).ToList();
                     if (!bloodPressureList.Any())
                     {
                         errors = "no blood pressure entries found";
                         return true;
                     }
                     stats = bloodPressureList;
+                }
+                catch (InvalidOperationException ex)
+                {
+                    errors = "trouble retrieving blood pressure entries - " + ex.Message;
+                    return false;
+                }
+                catch (Exception ex)
+                {
+                    errors = "trouble retrieving blood pressure entries - " + ex.Message;
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public List<BloodPressure>? GetBloodPressureEntriesBySessionKey(string sessionKey, DateTime from, DateTime to, out string errors)
+        {
+            errors = "";
+
+            int memberId = GetMemberIdBySessionKey(sessionKey, out string memberLookupErrors);
+            if (memberId == 0)
+            {
+                errors = "trouble saving entry - " + memberLookupErrors;
+                return null;
+            }
+
+            bool success = GetBloodPressureEntriesByMemberId(memberId, from, to, out List<BloodPressure>? stats, out string bloodSugarLookupErrors);
+            if (!success)
+            {
+                errors = "trouble getting entries - " + bloodSugarLookupErrors;
+                return null;
+            }
+            return stats;
+        }
+
+        private bool GetBloodPressureEntriesByMemberId(int memberId, DateTime from, DateTime to, out List<BloodPressure>? bloodPressures, out string errors)
+        {
+            errors = "";
+            List<BloodPressure> bloodPressureEntries = new List<BloodPressure>();
+            bloodPressures = new List<BloodPressure>();
+
+            using (var connection = new NpgsqlConnection(ConnectionString))
+            {
+                var dictionary = new Dictionary<string, object>
+                {
+                    { "@MemberId", memberId },
+                    { "@DateFrom", from },
+                    { "@DateTo", to }
+                };
+
+                var parameters = new DynamicParameters(dictionary);
+                try
+                {
+                    bloodPressureEntries = connection.Query<BloodPressure>(GetBloodPressuresByMemberIdDateRangeQueryString, parameters).ToList();
+                    if (!bloodPressureEntries.Any())
+                    {
+                        errors = "no blood pressure entries found";
+                        return true;
+                    }
+                    bloodPressures = bloodPressureEntries;
                 }
                 catch (InvalidOperationException ex)
                 {

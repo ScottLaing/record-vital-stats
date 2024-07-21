@@ -149,6 +149,31 @@ namespace RecordMyStats.WebApi2.Controllers
         }
 
         [Authorize]
+        [HttpPost("GetBloodPressureEntriesByRange")]
+        public ActionResult<GetBloodPressureEntriesResultDto> GetBloodPressureEntriesByRange(GetEntriesParamsDto rangeParams)
+        {
+            if (rangeParams.SessionKey == null)
+            {
+                var missingParamsResult = new GetEntriesResultDto()
+                {
+                    Errors = Constants.RestStrings.RestParamsMissing,
+                    Result = false
+                };
+                return Unauthorized(missingParamsResult);
+            }
+            var result = repos.GetBloodPressureEntriesBySessionKey(rangeParams.SessionKey, rangeParams.DateFrom, rangeParams.DateTo, out string errors);
+
+            var successResult = new GetBloodPressureEntriesResultDto()
+            {
+                Entries = result,
+                Errors = errors,
+                Result = string.IsNullOrWhiteSpace(errors)
+            };
+            return Ok(successResult);
+        }
+        
+
+        [Authorize]
         [HttpPost("GetEntriesByRange")]
         public ActionResult<GetBloodSugarEntriesResultDto> GetEntriesByRange(GetEntriesParamsDto rangeParams)
         {
