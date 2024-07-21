@@ -140,22 +140,28 @@ namespace RecordMyStats.DataAccess.Data.Vitals
 
         public static string AddBloodPressureEntryQueryString = @"INSERT INTO public.BloodPressure
                                (MemberId
-                               ,RecordingDate
                                ,Systolic
                                ,Diastolic
                                ,Units
+                               ,HeartRate
+                               ,RecordingDate
+                               ,Mood
+                               ,Comments
                                ,WhenTaken
-                               ,IsActive
-                               ,CreateDate)
+                               ,CreateDate
+                               ,IsActive)
                          VALUES
                                (@MemberId
-                               ,@RecordingDate
                                ,@Systolic
                                ,@Diastolic
                                ,@Units
+                               ,@HeartRate
+                               ,@RecordingDate
+                               ,@Mood
+                               ,@Comments
                                ,@WhenTaken
-                               ,TRUE
-                               ,@CreateDate)";
+                               ,@CreateDate
+                               ,TRUE)";
 
 
         public static string UpdateSessionsDeactivate = @"UPDATE public.Session

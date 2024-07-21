@@ -506,9 +506,12 @@ namespace RecordMyStats.DataAccess.Data.Vitals
                 command.Parameters.AddWithValue("@Systolic", ((object?)entry.Systolic) ?? DBNull.Value);
                 command.Parameters.AddWithValue("@Diastolic", ((object?)entry.Diastolic) ?? DBNull.Value);
                 command.Parameters.AddWithValue("@Units", ((object?)entry.Units) ?? DBNull.Value);
+                command.Parameters.AddWithValue("@HeartRate", ((object?)entry.HeartRate) ?? DBNull.Value);
+                command.Parameters.AddWithValue("@RecordingDate", ((object?)entry.RecordingDate) ?? DBNull.Value);
+                command.Parameters.AddWithValue("@Mood", ((object?)entry.Mood) ?? DBNull.Value);
+                command.Parameters.AddWithValue("@Comments", ((object?)entry.Comments) ?? DBNull.Value);
                 command.Parameters.AddWithValue("@WhenTaken", ((object?)entry.WhenTaken) ?? DBNull.Value);
                 command.Parameters.AddWithValue("@CreateDate", ((object?)entry.CreateDate) ?? DBNull.Value);
-                command.Parameters.AddWithValue("@RecordingDate", ((object?)entry.RecordingDate) ?? DBNull.Value);
 
                 try
                 {

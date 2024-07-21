@@ -1,4 +1,6 @@
-﻿namespace RecordMyStats.Windows;
+﻿using System.Windows.Input;
+
+namespace RecordMyStats.Windows;
 
 /// <summary>
 /// code behind for <see cref="BloodPressureWindow"/>
@@ -30,6 +32,8 @@ public partial class BloodPressureWindow : Window
         cmbWhenMeasured.Items.Add("Morning");
         cmbWhenMeasured.Items.Add("During the day");
         cmbWhenMeasured.Items.Add("Before sleep");
+
+        Constants.MoodMapDictionary.Values.ToList().ForEach(s => cmbMood.Items.Add(s));
 
         rbEntryTimeNow_Checked(null, null);
     }
@@ -119,6 +123,18 @@ public partial class BloodPressureWindow : Window
             return;
         }
 
+        if (!int.TryParse(this.txtHeartRate.Text, out int heartRate))
+        {
+            MessageBox.Show("Heart rate value should be a number", Constants.AppGlobal.ApplicationName);
+            return;
+        }
+
+        if (heartRate > 200 || heartRate < 40)
+        {
+            MessageBox.Show("Heart rate value should be between 40 and 200", Constants.AppGlobal.ApplicationName);
+            return;
+        }
+
         BloodPressure entry = new BloodPressure()
         {
             Systolic = fSystolic,
@@ -126,19 +142,43 @@ public partial class BloodPressureWindow : Window
             Units = bpUnits ?? "",
             RecordingDate = newDateTime,
             CreateDate = DateTime.Now,
-            WhenTaken = whenMeasured
+            WhenTaken = whenMeasured,
+            Mood = cmbMood.SelectedIndex,
+            HeartRate = heartRate,
+            Comments = txtComments.Text,
+            IsActive = true
         };
 
         bool success = vitalsBLL.AddBloodPressureEntry(entry, _sessionKey, _token, out string addEntryErrors);
-        if (success)
-        {
-           // MessageBox.Show("Blood pressure saved successfully.", Constants.AppGlobal.ApplicationName);
-        }
-        else
+        if (!success)
         {
             MessageBox.Show($"Trouble saving entry: {addEntryErrors}", Constants.AppGlobal.ApplicationName);
         }
         this.Close();
+    }
+    private void NumericTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+    {
+        // Regular expression to check if the input is numeric
+        Regex regex = new Regex("[^0-9]+");
+        e.Handled = regex.IsMatch(e.Text);
+    }
+
+    private void NumericTextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        // Allow navigation keys, backspace, delete, etc.
+        if (e.Key == Key.Back || e.Key == Key.Delete || e.Key == Key.Tab ||
+            e.Key == Key.Left || e.Key == Key.Right || e.Key == Key.Enter)
+        {
+            e.Handled = false;
+        }
+        else
+        {
+            // Disallow any non-numeric key
+            if (!((e.Key >= Key.D0 && e.Key <= Key.D9) || (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)))
+            {
+                e.Handled = true;
+            }
+        }
     }
 
     private void rbEntryTimeNow_Checked(object sender, RoutedEventArgs e)
