@@ -163,6 +163,26 @@ namespace RecordMyStats.DataAccess.Data.Vitals
                                ,@CreateDate
                                ,TRUE)";
 
+        public static string AddOxygenLevelEntryQueryString = @"INSERT INTO public.Oxygen
+                               (MemberId
+                               ,OxygenValue
+                               ,HeartRate
+                               ,RecordingDate
+                               ,Mood
+                               ,Comments
+                               ,WhenTaken
+                               ,CreateDate
+                               ,IsActive)
+                         VALUES
+                               (@MemberId
+                               ,@OxygenValue
+                               ,@HeartRate
+                               ,@RecordingDate
+                               ,@Mood
+                               ,@Comments
+                               ,@WhenTaken
+                               ,@CreateDate
+                               ,TRUE)";
 
         public static string UpdateSessionsDeactivate = @"UPDATE public.Session
                                        SET IsActive = FALSE 

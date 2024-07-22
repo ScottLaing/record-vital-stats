@@ -1319,7 +1319,57 @@ namespace RecordMyStats.DataAccess.Data.Vitals
 
         public bool AddOxygenLevelEntry(OxygenLevel oxygenLevelEntry, string sessionKey, out string errors)
         {
-            throw new NotImplementedException();
+            errors = "";
+
+            int memberId = GetMemberIdBySessionKey(sessionKey, out string errors2);
+            if (memberId == 0)
+            {
+                errors = "trouble saving oxygen entry - " + errors2;
+                return false;
+            }
+
+            bool success = AddOxygenLevelEntry(oxygenLevelEntry, memberId, out string errors3);
+            if (!success)
+            {
+                errors = "trouble saving oxygen entry - " + errors3;
+            }
+            return success;
+        }
+
+        private bool AddOxygenLevelEntry(OxygenLevel oxygenLevelEntry, int memberId, out string errors)
+        {
+            bool result = true;
+            errors = "";
+
+            using (var connection = new NpgsqlConnection(ConnectionString))
+            {
+                NpgsqlCommand command = new NpgsqlCommand(AddOxygenLevelEntryQueryString, connection);
+                command.Parameters.AddWithValue("@MemberId", memberId);
+                command.Parameters.AddWithValue("@OxygenValue", ((object?)oxygenLevelEntry.OxygenValue) ?? DBNull.Value);
+                command.Parameters.AddWithValue("@HeartRate", ((object?)oxygenLevelEntry.HeartRate) ?? DBNull.Value);
+                command.Parameters.AddWithValue("@RecordingDate", ((object?)oxygenLevelEntry.RecordingDate) ?? DBNull.Value);
+                command.Parameters.AddWithValue("@Mood", ((object?)oxygenLevelEntry.Mood) ?? DBNull.Value);
+                command.Parameters.AddWithValue("@Comments", ((object?)oxygenLevelEntry.Comments) ?? DBNull.Value);
+                command.Parameters.AddWithValue("@WhenTaken", ((object?)oxygenLevelEntry.WhenTaken) ?? DBNull.Value);
+                command.Parameters.AddWithValue("@CreateDate", ((object?)oxygenLevelEntry.CreateDate) ?? DBNull.Value);
+
+                try
+                {
+                    connection.Open();
+                    int callResult = command.ExecuteNonQuery();
+                    if (callResult != 1)
+                    {
+                        result = false;
+                        errors = "Unspecified error with oxygen level entry, no records inserted.";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    result = false;
+                    errors = "Error saving oxygen level entry: " + ex.Message;
+                }
+            }
+            return result;
         }
     }
 }
