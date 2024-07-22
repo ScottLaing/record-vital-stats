@@ -1466,6 +1466,11 @@ namespace RecordMyStats.DataAccess.Data.Vitals
         {
             throw new NotImplementedException();
         }
+
+        public bool AddOxygenLevelEntry(OxygenLevel oxygenLevelEntry, string sessionKey, out string errors)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

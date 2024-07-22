@@ -152,6 +152,11 @@ namespace RecordMyStats.BLL
         {
             throw new NotImplementedException();
         }
+
+        public bool AddOxygenEntry(OxygenLevel entry, string sessionKey, string token, out string errors)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

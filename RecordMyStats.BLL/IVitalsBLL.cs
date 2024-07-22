@@ -26,10 +26,11 @@ namespace RecordMyStats.BLL
 
         List<BloodPressure>? GetBloodPressureEntriesBySessionKey(string sessionKey, DateTime fromDate, DateTime toDate, string token, out string errors);
 
-
         Member? GetMemberInfoBySessionKey(string sessionKey, string token, out string errors);
 
         List<Question>? GetQuestionsBySessionKey(string sessionKey, string token, bool randomOrder, out string errors);
+
+        bool AddOxygenEntry(OxygenLevel entry, string sessionKey, string token, out string errors);
 
         bool AddBloodPressureEntry(BloodPressure bp, string sessionKey, string token, out string errors);
 

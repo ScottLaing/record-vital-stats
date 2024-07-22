@@ -52,5 +52,7 @@ namespace RecordMyStats.DataAccess.Data.Vitals
         List<BloodPressure>? GetBloodPressureEntriesBySessionKey(string sessionKey, DateTime from, DateTime to, out string errors);
 
         bool UpdateQuestion(Question question, string sessionKey, out string errorsOut);
+
+        bool AddOxygenLevelEntry(OxygenLevel oxygenLevelEntry, string sessionKey, out string errors);
     }
 }

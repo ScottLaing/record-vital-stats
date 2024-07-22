@@ -130,11 +130,27 @@ namespace RecordMyStats.UserControls
         {
             if (string.IsNullOrEmpty(SessionKey))
             {
-                MessageBox.Show("trouble getting blood sugar session key from parent window");
+                MessageBox.Show("trouble getting session key from parent window");
                 return;
             }
             var bloodPressureViewWindow = new BloodPressureViewWindow(SessionKey, FullName, Token);
             bloodPressureViewWindow.Show();
+        }
+
+        private void mniOxygen_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(SessionKey))
+            {
+                MessageBox.Show("trouble getting session key from parent window");
+                return;
+            }
+            var o2LevelWindow = new O2LevelWindow(SessionKey, FullName, Token);
+            o2LevelWindow.Show();
+        }
+
+        private void mniOxygenView_Click(object sender, RoutedEventArgs e)
+        {
+            // tbd
         }
     }
 }

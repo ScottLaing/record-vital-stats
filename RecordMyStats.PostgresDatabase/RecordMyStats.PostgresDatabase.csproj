@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="public\Tables\BloodPressure.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="public\Tables\BloodPressure.sql" />
+  </ItemGroup>
+
 </Project>

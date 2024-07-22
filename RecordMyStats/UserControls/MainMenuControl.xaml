@@ -26,6 +26,11 @@
                         <Image Source="/RecordMyStats;component/Images/Health_16x.png" />
                     </MenuItem.Icon>
                 </MenuItem>
+                <MenuItem x:Name="mniOxygen" Header="Oxygen Level" Margin="0,0,0,0"  Click="mniOxygen_Click" >
+                    <MenuItem.Icon>
+                        <Image Source="/RecordMyStats;component/Images/Health_16x.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
                 <MenuItem x:Name="mniNote" Header="_Note" Margin="0,0,0,0"  Click="mniNote_Click" >
                     <MenuItem.Icon>
                         <Image Source="/RecordMyStats;component/Images/Log_16x.png" />
@@ -39,6 +44,11 @@
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="mniBloodPressureView" Header="Blood _Pressure" Margin="0,0,0,0"  Click="mniBloodPressureView_Click" >
+                    <MenuItem.Icon>
+                        <Image Source="/RecordMyStats;component/Images/Health_16x.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="mniOxygenView" Header="Oxygen" Margin="0,0,0,0"  Click="mniOxygenView_Click" >
                     <MenuItem.Icon>
                         <Image Source="/RecordMyStats;component/Images/Health_16x.png" />
                     </MenuItem.Icon>

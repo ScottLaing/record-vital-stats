@@ -249,6 +249,33 @@ namespace RecordMyStats.WebApi2.Controllers
         }
 
         [Authorize]
+        [HttpPost("AddOxygenLevelEntry")]
+        public ActionResult<SimpleResultDto> AddOxygenLevelEntry(AddOxygenLevelEntryDto addEntryDto)
+        {
+            if (addEntryDto == null || addEntryDto.OxygenLevelEntry == null || addEntryDto.SessionKey == null)
+            {
+                var missingParamsResult = new SimpleResultDto()
+                {
+                    Errors = Constants.RestStrings.RestParamsMissing,
+                    Result = false
+                };
+                return Unauthorized(missingParamsResult);
+            }
+
+            bool result = repos.AddOxygenLevelEntry(addEntryDto.OxygenLevelEntry, addEntryDto.SessionKey, out string errors);
+
+            // test call, wip stuff, verifying we can get info from the raw Token if required
+            var email1 = TokenUtility.GetEmailFromToken(Request, _configuration);
+
+            var successResult = new SimpleResultDto()
+            {
+                Errors = errors,
+                Result = result
+            };
+            return Ok(successResult);
+        }
+
+        [Authorize]
         [HttpPost("AddNoteEntry")]
         public ActionResult<SimpleResultDto> AddNoteEntry(AddNoteEntryDto addNoteEntryDto)
         {

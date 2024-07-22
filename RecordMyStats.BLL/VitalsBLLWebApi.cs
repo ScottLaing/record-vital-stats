@@ -468,5 +468,34 @@ namespace RecordMyStats.BLL
 
             return entriesFound;
         }
+
+        public bool AddOxygenEntry(OxygenLevel entry, string sessionKey, string token, out string errors)
+        {
+            bool success = true;
+            errors = "";
+            var resultDto = new SimpleResultDto();
+            var addEntryDto = new AddOxygenLevelEntryDto();
+            addEntryDto.SessionKey = sessionKey;
+            addEntryDto.OxygenLevelEntry = entry;
+
+            using (var client = new HttpClient())
+            {
+                try
+                {
+                    string returnResult = HttpUtils.SetupAndCallApi(client, true, addEntryDto, "Entry/AddOxygenLevelEntry", token);
+
+                    resultDto = JsonConvert.DeserializeObject<SimpleResultDto>(returnResult);
+                    success = resultDto?.Result ?? false;
+                    errors = resultDto?.Errors ?? "";
+                }
+                catch (Exception ex)
+                {
+                    success = false; // on error show email in use to block further continued logic with this email until issue is addressed (unclear on result)
+                    errors = $"trouble adding blood pressure entry, error: {ex.Message}";
+                }
+            }
+
+            return success;
+        }
     }
 }

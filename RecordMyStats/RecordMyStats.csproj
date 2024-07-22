@@ -11,6 +11,7 @@
     <None Remove="AreaChart_16x.png" />
     <None Remove="Images\AddUser_16x.png" />
     <None Remove="Images\AdvancedBreakpointEnabled.png" />
+    <None Remove="Images\Airbrush_16x.png" />
     <None Remove="Images\CheckedOutByOtherUser.png" />
     <None Remove="Images\Exit_16x.png" />
     <None Remove="Images\Health_16x.png" />
@@ -30,6 +31,7 @@
   <ItemGroup>
     <Resource Include="Images\AddUser_16x.png" />
     <Resource Include="Images\AdvancedBreakpointEnabled.png" />
+    <Resource Include="Images\Airbrush_16x.png" />
     <Resource Include="Images\AreaChart_16x.png" />
     <Resource Include="Images\CheckedOutByOtherUser.png" />
     <Resource Include="Images\Exit_16x.png" />
@@ -68,6 +70,9 @@
 
   <ItemGroup>
     <Page Update="Windows\BloodPressureViewWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="Windows\O2LevelWindow.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="Windows\MainWindow.xaml">
