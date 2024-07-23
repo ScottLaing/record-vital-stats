@@ -497,5 +497,15 @@ namespace RecordMyStats.BLL
 
             return success;
         }
+
+        public List<OxygenLevel>? GetOxygenLevelEntriesBySessionKey(string sessionKey, string token, out string errors)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<OxygenLevel>? GetOxygenLevelEntriesBySessionKey(string sessionKey, DateTime fromDate, DateTime toDate, string token, out string errors)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

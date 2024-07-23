@@ -24,6 +24,10 @@ namespace RecordMyStats.BLL
 
         List<BloodPressure>? GetBloodPressureEntriesBySessionKey(string sessionKey, string token, out string errors);
 
+        List<OxygenLevel>? GetOxygenLevelEntriesBySessionKey(string sessionKey, string token, out string errors);
+
+        List<OxygenLevel>? GetOxygenLevelEntriesBySessionKey(string sessionKey, DateTime fromDate, DateTime toDate, string token, out string errors);
+
         List<BloodPressure>? GetBloodPressureEntriesBySessionKey(string sessionKey, DateTime fromDate, DateTime toDate, string token, out string errors);
 
         Member? GetMemberInfoBySessionKey(string sessionKey, string token, out string errors);

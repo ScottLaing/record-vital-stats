@@ -69,6 +69,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="Windows\OxygenLevelViewWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
     <Page Update="Windows\BloodPressureViewWindow.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
