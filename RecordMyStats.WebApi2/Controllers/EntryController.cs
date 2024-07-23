@@ -125,6 +125,33 @@ namespace RecordMyStats.WebApi2.Controllers
         }
 
         [Authorize]
+        [HttpPost("GetOxygenLevelEntriesBySessionKey")]
+        public ActionResult<GetOxygenLevelEntriesResultDto> GetOxygenLevelEntriesBySessionKey(string sessionKey)
+        {
+            if (sessionKey == null)
+            {
+                var missingParamsResult = new GetOxygenLevelEntriesResultDto()
+                {
+                    Errors = Constants.RestStrings.RestParamsMissing,
+                    Result = false
+                };
+                return Unauthorized(missingParamsResult);
+            }
+            var result = repos.GetOxygenLevelEntriesBySessionKey(sessionKey, out string errors);
+
+            var normalResult = new GetOxygenLevelEntriesResultDto()
+            {
+                Entries = result,
+                Errors = errors,
+                Result = string.IsNullOrWhiteSpace(errors)
+            };
+
+            return Ok(normalResult);
+        }
+
+        
+
+        [Authorize]
         [HttpPost("GetBloodSugarEntriesByRange")]
         public ActionResult<GetBloodSugarEntriesResultDto> GetBloodSugarEntriesByRange(GetEntriesParamsDto rangeParams)
         {

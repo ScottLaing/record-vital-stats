@@ -1471,6 +1471,11 @@ namespace RecordMyStats.DataAccess.Data.Vitals
         {
             throw new NotImplementedException();
         }
+
+        public List<OxygenLevel>? GetOxygenLevelEntriesBySessionKey(string sessionKey, out string errors)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

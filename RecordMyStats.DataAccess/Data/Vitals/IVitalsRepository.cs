@@ -45,6 +45,8 @@ namespace RecordMyStats.DataAccess.Data.Vitals
 
         List<BloodPressure>? GetBloodPressureEntriesBySessionKey(string sessionKey, out string errors);
 
+        List<OxygenLevel>? GetOxygenLevelEntriesBySessionKey(string sessionKey, out string errors);
+
         bool AddQuestionEntry(Question question, string sessionKey, out string errors);
 
         List<BloodSugar>? GetBloodSugarEntriesBySessionKey(string sessionKey, DateTime from, DateTime to, out string errors);

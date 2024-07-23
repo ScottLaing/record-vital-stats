@@ -500,7 +500,33 @@ namespace RecordMyStats.BLL
 
         public List<OxygenLevel>? GetOxygenLevelEntriesBySessionKey(string sessionKey, string token, out string errors)
         {
-            throw new NotImplementedException();
+            bool wereEntriesFound = false;
+            var resultDto = new GetOxygenLevelEntriesResultDto();
+
+            List<OxygenLevel>? entriesFound = new List<OxygenLevel>();
+
+            errors = "";
+            using (var client = new HttpClient())
+            {
+                var encodedSession = HttpUtility.HtmlEncode(sessionKey);
+                try
+                {
+                    string returnResult = HttpUtils.SetupAndCallApiNoBody(client, true, "Entry/GetOxygenLevelEntriesBySessionKey", $"sessionKey={encodedSession}", token);
+
+                    resultDto = JsonConvert.DeserializeObject<GetOxygenLevelEntriesResultDto>(returnResult);
+                    wereEntriesFound = resultDto?.Result ?? false;
+                    entriesFound = resultDto?.Entries ?? new List<OxygenLevel>();
+                    errors = resultDto?.Errors ?? "";
+
+                }
+                catch (Exception ex)
+                {
+                    wereEntriesFound = false;
+                    errors = $"trouble getting statistic entries, error: {ex.Message}";
+                }
+            }
+
+            return entriesFound;
         }
 
         public List<OxygenLevel>? GetOxygenLevelEntriesBySessionKey(string sessionKey, DateTime fromDate, DateTime toDate, string token, out string errors)
