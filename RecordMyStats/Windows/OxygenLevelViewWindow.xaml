@@ -7,7 +7,7 @@
         xmlns:local2="clr-namespace:RecordMyStats.UserControls"
         mc:Ignorable="d"
         Icon="\Images\Health_16x.png"
-        Background="#6b705c"
+        Background="#FFE6A7"
         Title="List Blood Sugar" Height="370" Width="532" ResizeMode="CanResizeWithGrip">
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinHeight="5" MinWidth="5">
 
@@ -37,7 +37,7 @@
         <DataGrid x:Name="dgResults" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="6" Margin="0,0,20,35" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinWidth="10" MinHeight="10" AlternatingRowBackground="#FFB0DBE6" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=RecordingDate}" Header="Recording Date"/>
-                <DataGridTextColumn Binding="{Binding Path=OxygenValue}" Header="Blood Pressure"/>
+                <DataGridTextColumn Binding="{Binding Path=OxygenValue}" Header="O2 Value"/>
                 <DataGridTextColumn Binding="{Binding Path=HeartRate}" Header="Heart Rate"/>
                 <DataGridTextColumn Binding="{Binding Path=WhenTaken}" Header="WhenTaken"/>
                 <DataGridTextColumn Binding="{Binding Path=MoodDisplay}" Header="Mood"/>

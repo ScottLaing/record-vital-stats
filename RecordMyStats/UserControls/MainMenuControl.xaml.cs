@@ -150,7 +150,13 @@ namespace RecordMyStats.UserControls
 
         private void mniOxygenView_Click(object sender, RoutedEventArgs e)
         {
-            // tbd
+            if (string.IsNullOrEmpty(SessionKey))
+            {
+                MessageBox.Show("trouble getting session key from parent window");
+                return;
+            }
+            var oxygenLevelViewWindow = new OxygenLevelViewWindow(SessionKey, FullName, Token);
+            oxygenLevelViewWindow.Show();
         }
     }
 }
