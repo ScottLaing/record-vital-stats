@@ -19,20 +19,27 @@ Record-Vital-Stats project is a windows desktop project to consume a web api, to
 
 The project is a windows desktop project to consume a web api, to save and retrieve vital stats. Early version of the project, lots of mods ongoing.  
 
-## Features  <a name="features"></a>
+## Features (not all-inclusive) <a name="features"></a>
 
-* New User add window.
-* Login window.
-* Main window with menu.
-* Blood sugar entry window.
-* Blood sugar list window.
-* Combined stats entry window.
-* Combined stats list window.
-* Notes entry page.
-* Notes list page.
-* Authentication tracking with JWT token.
-* Profile window.
-* Logout functionality.
+* New User add/register window. (WPF)
+* Login window. (WPF) 
+* Main window with menu.  (WPF)
+* Blood sugar entry window.  (WPF)
+* Blood sugar entries list window.  (WPF)
+* Blood pressure entry window.  (WPF)
+* Blood pressure entries list window.  (WPF)
+* Oxygen level entry window.  (WPF)
+* Oxygen level entries list window.  (WPF)
+* Notes entry page.  (WPF)
+* Notes list page.  (WPF)
+* Back end controllers for login and authentication. (asp.net, Web Api, .net core)
+* Back end controllers for new entries. (asp.net, Web Api, .net core)
+* Back end controllers getting previous entries lists. (asp.net, Web Api, .net core)
+* Back end database inserts and lookups, CRUD. (C# library)
+* Database tracking projects. (C# library)
+* Site authentication tracking logic using JWT token. (asp.net Web Api, .net core)
+* Profile window.  (WPF)
+* Logout functionality.  (WPF)
 
 
 ## Installation and Setup  <a name="installation"></a>
