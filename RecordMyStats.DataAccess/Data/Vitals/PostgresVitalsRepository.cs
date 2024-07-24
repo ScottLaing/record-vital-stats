@@ -1374,6 +1374,26 @@ namespace RecordMyStats.DataAccess.Data.Vitals
 
         public List<OxygenLevel>? GetOxygenLevelEntriesBySessionKey(string sessionKey, out string errors)
         {
+            errors = "";
+
+            int memberId = GetMemberIdBySessionKey(sessionKey, out string memberLookupErrors);
+            if (memberId == 0)
+            {
+                errors = "trouble saving entry - " + memberLookupErrors;
+                return null;
+            }
+
+            bool success = GetOxygenLevelEntriesByMemberId(memberId, out List<OxygenLevel>? stats, out string errors3);
+            if (!success)
+            {
+                errors = "trouble getting entries - " + errors3;
+                return null;
+            }
+            return stats;
+        }
+
+        private bool GetOxygenLevelEntriesByMemberId(int memberId, out List<OxygenLevel>? stats, out string errors2)
+        {
             throw new NotImplementedException();
         }
     }
