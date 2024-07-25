@@ -1392,6 +1392,67 @@ namespace RecordMyStats.DataAccess.Data.Vitals
             return stats;
         }
 
+        public List<OxygenLevel>? GetOxygenLevelEntriesBySessionKey(string sessionKey, DateTime from, DateTime to, out string errors)
+        {
+            errors = "";
+
+            int memberId = GetMemberIdBySessionKey(sessionKey, out string memberLookupErrors);
+            if (memberId == 0)
+            {
+                errors = "trouble saving entry - " + memberLookupErrors;
+                return null;
+            }
+
+            bool success = GetOxygenLevelEntriesByMemberId(memberId, from, to, out List<OxygenLevel>? stats, out string errors3);
+            if (!success)
+            {
+                errors = "trouble getting entries - " + errors3;
+                return null;
+            }
+            return stats;
+        }
+
+        private bool GetOxygenLevelEntriesByMemberId(int memberId, DateTime from, DateTime to, out List<OxygenLevel>? stats, out string errors)
+        {
+            errors = "";
+            List<OxygenLevel> oxygenLevelEntries = new List<OxygenLevel>();
+            stats = new List<OxygenLevel>();
+
+            using (var connection = new NpgsqlConnection(ConnectionString))
+            {
+                var dictionary = new Dictionary<string, object>
+                {
+                    { "@MemberId", memberId },
+                    { "@DateFrom", from },
+                    { "@DateTo", to }
+                };
+
+                var parameters = new DynamicParameters(dictionary);
+                try
+                {
+                    oxygenLevelEntries = connection.Query<OxygenLevel>(GetOxygenEntriesByMemberIdQueryString, parameters).ToList();
+                    if (!oxygenLevelEntries.Any())
+                    {
+                        errors = "no oxygen entries found";
+                        return true;
+                    }
+                    stats = oxygenLevelEntries;
+                }
+                catch (InvalidOperationException ex)
+                {
+                    errors = "trouble retrieving oxygen entries - " + ex.Message;
+                    return false;
+                }
+                catch (Exception ex)
+                {
+                    errors = "trouble retrieving oxygen entries - " + ex.Message;
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
         private bool GetOxygenLevelEntriesByMemberId(int memberId, out List<OxygenLevel>? stats, out string errors)
         {
             errors = "";
