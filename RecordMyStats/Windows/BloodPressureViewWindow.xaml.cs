@@ -1,4 +1,6 @@
-﻿namespace RecordMyStats.Windows;
+﻿using static RecordMyStats.Common.Constants;
+
+namespace RecordMyStats.Windows;
 
 /// <summary>
 /// code behind for <see cref="BloodPressureViewWindow"/>
@@ -9,13 +11,14 @@ public partial class BloodPressureViewWindow : Window
     private string _fullName;
     private string _token;
     private IVitalsBLL vitalsBLL = VitalsFactory.GetVitalsBLL();
-    List<BloodPressure>? lastLookupResults = new List<BloodPressure>();
+    private List<BloodPressure>? lastLookupResults = new List<BloodPressure>();
+    private const string FromAndToDates = "Please enter from and to dates";
 
     public BloodPressureViewWindow(string sessionKey, string fullName, string token)
     {
         InitializeComponent();
         GlobalUISettings.AddToWindowsList(this);
-        this.Title = Constants.AppGlobal.ApplicationName + " - List Blood Pressure";
+        Title = Constants.AppGlobal.ApplicationName + " - List Blood Pressure";
       
         txtFullName.Content = fullName + " logged in.";
         _sessionKey = sessionKey;
@@ -36,10 +39,10 @@ public partial class BloodPressureViewWindow : Window
         lastLookupResults = results;
 
         var now = DateTime.Now;
-        this.dpFromDate.DisplayDate = new DateTime(now.Year, 1, 1);
-        this.dpFromDate.SelectedDate = new DateTime(now.Year, 1, 1);
-        this.dpToDate.DisplayDate = now;
-        this.dpToDate.SelectedDate = now;
+        dpFromDate.DisplayDate = new DateTime(now.Year, 1, 1);
+        dpFromDate.SelectedDate = new DateTime(now.Year, 1, 1);
+        dpToDate.DisplayDate = now;
+        dpToDate.SelectedDate = now;
 
     }
 
@@ -49,7 +52,7 @@ public partial class BloodPressureViewWindow : Window
         var to = dpToDate.SelectedDate;
         if (from == null || to == null)
         {
-            MessageBox.Show("Please enter from and to dates");
+            MessageBox.Show(FromAndToDates, AppGlobal.ApplicationName, MessageBoxButton.OK, MessageBoxImage.Error);
             return;
         }
 
@@ -69,10 +72,4 @@ public partial class BloodPressureViewWindow : Window
         lblStatus.Content = $"Entries count: {results?.Count}";
         lastLookupResults = results;
     }
-
-    private void btnRecord_Click(object sender, RoutedEventArgs e)
-    {
-     
-    }
-
 }
