@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace RecordMyStats.DataAccess.Data.Vitals
 {
-    public class SqlServerVitalsNewRepository : IVitalsRepository
+    public class SqlServerVitalsRepository : IVitalsRepository
     {
         private string ConnectionString = Config.DbConnectionStrings.VitalsDbConnString;
 

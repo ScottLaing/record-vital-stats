@@ -2,7 +2,6 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 using RecordMyStats.WebApi2.Services;
 using RecordMyStats.Common;
