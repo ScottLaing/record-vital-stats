@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static RecordMyStats.Common.Constants;
+﻿using static RecordMyStats.Common.Constants;
 
 namespace RecordMyStats.Common.Entities
 {
