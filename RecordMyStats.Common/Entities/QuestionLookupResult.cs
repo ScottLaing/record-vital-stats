@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-
-namespace RecordMyStats.Common.Entities
+﻿namespace RecordMyStats.Common.Entities
 {
     public class QuestionLookupResult
     {
