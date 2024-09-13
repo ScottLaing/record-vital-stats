@@ -1,4 +1,6 @@
-﻿namespace RecordMyStats.Windows;
+﻿using static RecordMyStats.Common.Constants;
+
+namespace RecordMyStats.Windows;
 
 /// <summary>
 /// code behind for <see cref="RecordStatsWindow"/>
@@ -19,7 +21,7 @@ public partial class RecordStatsWindow : Window
 
         this.Title = Constants.AppGlobal.ApplicationName + " - Quick Stats";
         UpdateTime();
-        txtFullName.Content = fullName + " logged in.";
+        txtFullName.Content = fullName + LoggedIn;
         _sessionKey = sessionKey;
         _fullName = fullName;
         _token = token;

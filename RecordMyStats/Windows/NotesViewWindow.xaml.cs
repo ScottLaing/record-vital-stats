@@ -1,4 +1,6 @@
-﻿namespace RecordMyStats.Windows;
+﻿using static RecordMyStats.Common.Constants;
+
+namespace RecordMyStats.Windows;
 
 /// <summary>
 /// code behind for <see cref="StatsViewWindow"/>
@@ -17,7 +19,7 @@ public partial class NotesViewWindow : Window
         GlobalUISettings.AddToWindowsList(this);
         this.Title = Constants.AppGlobal.ApplicationName + " - List Notes";
       
-        txtFullName.Content = fullName + " logged in.";
+        txtFullName.Content = fullName + LoggedIn;
         _sessionKey = sessionKey;
         _fullName = fullName;
         _token = token;
@@ -31,7 +33,7 @@ public partial class NotesViewWindow : Window
         }
         else if (results == null)
         {
-            lblStatus.Content = "errors: some error occurred with lookup";
+            lblStatus.Content = SomeErrorsWithLookup;
         }
         //foreach (var result in results)
         //{
@@ -72,7 +74,7 @@ public partial class NotesViewWindow : Window
         }
         else if (results == null)
         {
-            lblStatus.Content = "errors: some error occurred with lookup";
+            lblStatus.Content = SomeErrorsWithLookup;
         }
         dgResults.ItemsSource = results;
         lblStatus.Content = $"Notes count: {results?.Count}";

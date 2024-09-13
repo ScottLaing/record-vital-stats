@@ -1,4 +1,7 @@
-﻿namespace RecordMyStats.Windows;
+﻿using static RecordMyStats.Common.Constants;
+
+namespace RecordMyStats.Windows;
+
 
 /// <summary>
 /// code behind for <see cref="MainWindow"/>
@@ -24,7 +27,7 @@ public partial class MainWindow : Window
 
         this.Title = Constants.AppGlobal.ApplicationName;
         UpdateTime();
-        txtFullName.Content = fullName + " logged in.";
+        txtFullName.Content = fullName + LoggedIn;
         _sessionKey = sessionKey;
         _fullName = fullName;
         _token = token;

@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
+using static RecordMyStats.Common.Constants;
+
 
 namespace RecordMyStats.Windows;
 
@@ -20,7 +22,7 @@ public partial class NoteWindow : Window
         var info = vitalsBLL.GetMemberInfoBySessionKey(sessionKey, token, out string memberInfoErrors);
 
         this.Title = Constants.AppGlobal.ApplicationName + " - Notes";
-        txtFullName.Content = fullName + " logged in.";
+        txtFullName.Content = fullName + LoggedIn;
         _sessionKey = sessionKey;
         _fullName = fullName;
         _token = token;

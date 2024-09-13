@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using static RecordMyStats.Common.Constants;
 
 namespace RecordMyStats.Windows;
 
@@ -21,7 +22,7 @@ public partial class BloodPressureWindow : Window
 
         this.Title = Constants.AppGlobal.ApplicationName + " - Blood Pressure";
         UpdateTime();
-        txtFullName.Content = fullName + " logged in.";
+        txtFullName.Content = fullName + LoggedIn;
         _sessionKey = sessionKey;
         _fullName = fullName;
         _token = token;

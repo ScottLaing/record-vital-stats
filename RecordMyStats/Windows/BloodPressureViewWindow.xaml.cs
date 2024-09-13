@@ -12,7 +12,6 @@ public partial class BloodPressureViewWindow : Window
     private string _token;
     private IVitalsBLL vitalsBLL = VitalsFactory.GetVitalsBLL();
     private List<BloodPressure>? lastLookupResults = new List<BloodPressure>();
-    private const string FromAndToDates = "Please enter from and to dates";
 
     public BloodPressureViewWindow(string sessionKey, string fullName, string token)
     {
@@ -20,7 +19,7 @@ public partial class BloodPressureViewWindow : Window
         GlobalUISettings.AddToWindowsList(this);
         Title = Constants.AppGlobal.ApplicationName + " - List Blood Pressure";
       
-        txtFullName.Content = fullName + " logged in.";
+        txtFullName.Content = fullName + LoggedIn;
         _sessionKey = sessionKey;
         _fullName = fullName;
         _token = token;
@@ -32,10 +31,10 @@ public partial class BloodPressureViewWindow : Window
         }
         else if (results == null)
         {
-            lblStatus.Content = "errors: some error occurred with lookup";
+            lblStatus.Content = SomeErrorsWithLookup;
         }
         dgResults.ItemsSource = results;
-        lblStatus.Content = $"Entries count: {results?.Count}";
+        lblStatus.Content = string.Format(EntriesCount, results?.Count);
         lastLookupResults = results;
 
         var now = DateTime.Now;
@@ -66,10 +65,10 @@ public partial class BloodPressureViewWindow : Window
         }
         else if (results == null)
         {
-            lblStatus.Content = "errors: some error occurred with lookup";
+            lblStatus.Content = SomeErrorsWithLookup;
         }
         dgResults.ItemsSource = results;
-        lblStatus.Content = $"Entries count: {results?.Count}";
+        lblStatus.Content = string.Format(EntriesCount, results?.Count);
         lastLookupResults = results;
     }
 }

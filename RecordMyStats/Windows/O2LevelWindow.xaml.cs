@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System.Windows.Input;
+using static RecordMyStats.Common.Constants;
+
 
 namespace RecordMyStats.Windows;
 
@@ -22,7 +24,7 @@ public partial class O2LevelWindow : Window
 
         this.Title = Constants.AppGlobal.ApplicationName + " - Oxygen Level";
         UpdateTime();
-        txtFullName.Content = fullName + " logged in.";
+        txtFullName.Content = fullName + LoggedIn;
         _sessionKey = sessionKey;
         _fullName = fullName;
         _token = token;

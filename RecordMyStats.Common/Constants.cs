@@ -8,6 +8,11 @@
 
         public static bool EncryptNotes = true;
 
+        public const string SomeErrorsWithLookup = "Errors: some error occurred with lookup";
+        public const string FromAndToDates = "Please enter from and to dates";
+        public const string EntriesCount = "Entries count: {0}";
+        public const string LoggedIn = " logged in.";
+
         public class AppGlobal
         {
             public static string ApplicationName = "Record Vital Stats";

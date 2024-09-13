@@ -1,4 +1,6 @@
-﻿namespace RecordMyStats.Windows;
+﻿using static RecordMyStats.Common.Constants;
+
+namespace RecordMyStats.Windows;
 
 /// <summary>
 /// code behind for <see cref="BloodSugarViewWindow"/>
@@ -17,7 +19,7 @@ public partial class BloodSugarViewWindow : Window
         GlobalUISettings.AddToWindowsList(this);
         this.Title = Constants.AppGlobal.ApplicationName + " - List Blood Sugar";
       
-        txtFullName.Content = fullName + " logged in.";
+        txtFullName.Content = fullName + LoggedIn;
         _sessionKey = sessionKey;
         _fullName = fullName;
         _token = token;
@@ -29,10 +31,10 @@ public partial class BloodSugarViewWindow : Window
         }
         else if (results == null)
         {
-            lblStatus.Content = "errors: some error occurred with lookup";
+            lblStatus.Content = SomeErrorsWithLookup;
         }
         dgResults.ItemsSource = results;
-        lblStatus.Content = $"Entries count: {results?.Count}";
+        lblStatus.Content = string.Format(EntriesCount, results?.Count);
         lastLookupResults = results;
 
         var now = DateTime.Now;
@@ -49,7 +51,7 @@ public partial class BloodSugarViewWindow : Window
         var to = dpToDate.SelectedDate;
         if (from == null || to == null)
         {
-            MessageBox.Show("Please enter from and to dates");
+            MessageBox.Show(FromAndToDates);
             return;
         }
 
@@ -63,10 +65,10 @@ public partial class BloodSugarViewWindow : Window
         }
         else if (results == null)
         {
-            lblStatus.Content = "errors: some error occurred with lookup";
+            lblStatus.Content = SomeErrorsWithLookup;
         }
         dgResults.ItemsSource = results;
-        lblStatus.Content = $"Entries count: {results?.Count}";
+        lblStatus.Content = string.Format(EntriesCount,results?.Count);
         lastLookupResults = results;
 
     }
