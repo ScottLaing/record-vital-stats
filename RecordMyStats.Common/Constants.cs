@@ -24,6 +24,22 @@
             public const int TokenExpireMinutes = 0;
         }
 
+        public static readonly List<string> BloodSugarUnits = new List<string>
+        {
+            "mg/dL",
+            "mmol/L"
+        };
+
+        public static readonly List<string> BloodSugarRecordingTimes = new List<string>
+        {
+            "Fasting (overnite)",
+            "Pre-meal",
+            "2 Hours After Meal",
+            "1 Hour After Meal",
+            "15 Mins After Meal"
+        };
+
+
         public const string NoSelection = "No selection";
 
         public readonly static Dictionary<int, string> MoodMapDictionary = new Dictionary<int, string>()

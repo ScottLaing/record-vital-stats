@@ -27,15 +27,10 @@ public partial class BloodSugarWindow : Window
         _fullName = fullName;
         _token = token;
 
-        cmbBloodSugarUnits.Items.Add("mg/dL");
-        cmbBloodSugarUnits.Items.Add("mmol/L");
+        BloodSugarUnits.ForEach(s => cmbBloodSugarUnits.Items.Add(s));
         cmbBloodSugarUnits.SelectedIndex = 0;
-
-        cmbWhenMeasured.Items.Add("Fasting (overnite)");
-        cmbWhenMeasured.Items.Add("Pre-meal");
-        cmbWhenMeasured.Items.Add("2 Hours After Meal");
-        cmbWhenMeasured.Items.Add("1 Hour After Meal");
-        cmbWhenMeasured.Items.Add("15 Mins After Meal");
+        
+        BloodSugarRecordingTimes.ForEach(s => cmbWhenMeasured.Items.Add(s));
 
         Constants.MoodMapDictionary.Values.ToList().ForEach(s => cmbMood.Items.Add(s));
 
