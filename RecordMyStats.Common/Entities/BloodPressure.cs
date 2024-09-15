@@ -39,5 +39,12 @@ namespace RecordMyStats.Common.Entities
         public DateTime CreateDate { get; set; }
         public DateTime ModifiedDate { get; set; }
         public bool IsActive { get; set; }
+
+        public override string ToString()
+        {
+            return $"Id: {Id}, MemberId: {MemberId}, Systolic: {Systolic}, Diastolic: {Diastolic}, Units: {Units}, " +
+                $"HeartRate: {HeartRate}, RecordingDate: {RecordingDate}, Mood: {Mood}, Comments: {Comments}, " +
+                $"WhenTaken: {WhenTaken}, CreateDate: {CreateDate}, ModifiedDate: {ModifiedDate}, IsActive: {IsActive}";
+        }
     }
 }

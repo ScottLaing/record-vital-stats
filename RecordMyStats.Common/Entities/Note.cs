@@ -13,5 +13,12 @@
         public string? Key2 { get; set; }
         public string? Salt { get; set; }
         public bool? IsEncrypted { get; set; }
+
+        public override string ToString()
+        {
+            return $"Id: {Id}, MemberId: {MemberId}, Description: {Description}, " +
+                $"FullText: {FullText}, Created: {Created}, ModBy: {ModBy}, IsActive: {IsActive}, Key1: {Key1}, Key2: {Key2}, " +
+                $"Salt: {Salt}, IsEncrypted: {IsEncrypted}";
+        }
     }
 }

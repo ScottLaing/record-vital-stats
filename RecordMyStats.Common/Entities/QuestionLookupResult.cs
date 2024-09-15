@@ -19,6 +19,14 @@
         public string ModifiedBy { get; set; } = "";
         private static Random rnd = new Random();
 
+        public override string ToString()
+        {
+            return $"QuestionId: {QuestionId}, QuestionText: {QuestionText}, ExplanationText: {ExplanationText}, " +
+                $"QuestionIsActive: {QuestionIsActive}, AnswerId: {AnswerId}, AnswerText: {AnswerText}, " +
+                $"MultipleAnswers: {MultipleAnswers}, AnswerIsActive: {AnswerIsActive}, AnswerIsCorrect: {AnswerIsCorrect}, " +
+                $"CreatedDate: {CreatedDate}, CreatedBy: {CreatedBy}, ModifiedDate: {ModifiedDate}, ModifiedBy: {ModifiedBy}";
+        }
+
         public static List<Question> GetQuestionsFromQuestionResults(List<QuestionLookupResult> questionResults)
         {
             List<Question> result = new List<Question>();

@@ -24,5 +24,12 @@ namespace RecordMyStats.Common.Entities
         public string Comments { get; set; } = "";
         public DateTime RecordingDate { get; set; }
         public bool IsActive { get; set; }
+
+        public override string ToString()
+        {
+            return $"Id: {Id}, MemberId: {MemberId}, Value: {Value}, Units: {Units}, " +
+                $"WhenTaken: {WhenTaken}, CreateDate: {CreateDate}, Mood: {Mood}, " +
+                $"Comments: {Comments}, RecordingDate: {RecordingDate}, IsActive: {IsActive}";
+        }
     }
 }
