@@ -27,7 +27,7 @@ public partial class BloodSugarViewWindow : Window
         var results = vitalsBLL.GetBloodSugarEntriesBySessionKey(sessionKey, token, out string errors);
         if (!string.IsNullOrEmpty(errors))
         {
-            lblStatus.Content = "errors: " + errors;
+            lblStatus.Content = Errors + errors;
         }
         else if (results == null)
         {
@@ -61,7 +61,7 @@ public partial class BloodSugarViewWindow : Window
 
         if (!string.IsNullOrEmpty(errors))
         {
-            lblStatus.Content = "errors: " + errors;
+            lblStatus.Content = Errors + errors;
         }
         else if (results == null)
         {

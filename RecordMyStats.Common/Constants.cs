@@ -12,6 +12,9 @@
         public const string FromAndToDates = "Please enter from and to dates";
         public const string EntriesCount = "Entries count: {0}";
         public const string LoggedIn = " logged in.";
+        public const string Errors = "errors: ";
+        public const string LongDateFormat = "MMMM dd yyyy hh:mm tt";
+        public const string MillimetersOfMercury = "mmHg";
 
         public class AppGlobal
         {
@@ -39,6 +42,13 @@
             "15 Mins After Meal"
         };
 
+        public static readonly List<string> BloodPressureMeasuringTimes = new List<string>
+        {
+            "Morning",
+            "During the day",
+            "Before sleep"
+        };
+        
 
         public const string NoSelection = "No selection";
 

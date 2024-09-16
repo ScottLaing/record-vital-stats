@@ -29,7 +29,7 @@ public partial class NotesViewWindow : Window
         var results = vitalsBLL.GetNoteEntriesByRange(sessionKey, from, to, token, out string errors);
         if (!string.IsNullOrEmpty(errors))
         {
-            lblStatus.Content = "errors: " + errors;
+            lblStatus.Content = Errors + errors;
         }
         else if (results == null)
         {
@@ -70,7 +70,7 @@ public partial class NotesViewWindow : Window
 
         if (!string.IsNullOrEmpty(errors))
         {
-            lblStatus.Content = "errors: " + errors;
+            lblStatus.Content = Errors + errors;
         }
         else if (results == null)
         {

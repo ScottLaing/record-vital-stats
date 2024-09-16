@@ -1,4 +1,6 @@
-﻿namespace RecordMyStats.Common.Entities
+﻿using static RecordMyStats.Common.Constants;
+
+namespace RecordMyStats.Common.Entities
 {
     public class StatisticEntry
     {
@@ -49,7 +51,7 @@
                 {
                     return Constants.DisplayStrings.NotAvailable;
                 }
-                string display = CreateDate?.ToString("MMMM dd yyyy hh:mm tt") ?? Constants.DisplayStrings.NotAvailable;
+                string display = CreateDate?.ToString(LongDateFormat) ?? Constants.DisplayStrings.NotAvailable;
                 return display;
             }
         }

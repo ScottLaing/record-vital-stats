@@ -27,7 +27,7 @@ public partial class OxygenLevelViewWindow : Window
         var results = vitalsBLL.GetOxygenLevelEntriesBySessionKey(sessionKey, token, out string errors);
         if (!string.IsNullOrEmpty(errors))
         {
-            lblStatus.Content = "errors: " + errors;
+            lblStatus.Content = Errors + errors;
         }
         else if (results == null)
         {
@@ -61,7 +61,7 @@ public partial class OxygenLevelViewWindow : Window
 
         if (!string.IsNullOrEmpty(errors))
         {
-            lblStatus.Content = "errors: " + errors;
+            lblStatus.Content = Errors + errors;
         }
         else if (results == null)
         {

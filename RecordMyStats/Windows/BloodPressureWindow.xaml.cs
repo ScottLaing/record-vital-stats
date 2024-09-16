@@ -12,6 +12,10 @@ public partial class BloodPressureWindow : Window
     private string _fullName;
     private string _token;
     private IVitalsBLL vitalsBLL = VitalsFactory.GetVitalsBLL();
+    private const string SystolicBloodPressureNotValid = "Systolic blood pressure value not valid.";
+    private const string DiastolicBloodPressureNotValid = "Diastolic blood pressure value not valid.";
+    private const string HeartRateShouldBeNumber = "Heart rate value should be a number";
+    private const string HeartRateNotInRange = "Heart rate value should be between 40 and 200";
 
     public BloodPressureWindow(string sessionKey, string fullName, string token)
     {
@@ -27,12 +31,10 @@ public partial class BloodPressureWindow : Window
         _fullName = fullName;
         _token = token;
 
-        cmbBloodPressureUnits.Items.Add("mmHg");
+        cmbBloodPressureUnits.Items.Add(MillimetersOfMercury);
         cmbBloodPressureUnits.SelectedIndex = 0;
 
-        cmbWhenMeasured.Items.Add("Morning");
-        cmbWhenMeasured.Items.Add("During the day");
-        cmbWhenMeasured.Items.Add("Before sleep");
+        BloodPressureMeasuringTimes.ForEach(s => cmbWhenMeasured.Items.Add(s));
 
         Constants.MoodMapDictionary.Values.ToList().ForEach(s => cmbMood.Items.Add(s));
 
@@ -100,12 +102,12 @@ public partial class BloodPressureWindow : Window
         float fSystolic;
         if (! float.TryParse(systolic, out fSystolic))
         {
-            MessageBox.Show("Systolic blood pressure value not valid.", Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(SystolicBloodPressureNotValid, Constants.AppGlobal.ApplicationName);
             return;
         }
         if (fSystolic <= 0)
         {
-            MessageBox.Show("Systolic blood pressure value not valid", Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(SystolicBloodPressureNotValid, Constants.AppGlobal.ApplicationName);
             return;
         }
 
@@ -114,25 +116,25 @@ public partial class BloodPressureWindow : Window
         var diastolic = txtBloodPressureDiastolic.Text;
         if (! float.TryParse(diastolic, out fDiastolic))
         {
-            MessageBox.Show("Diastolic blood pressure value not valid.", Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(DiastolicBloodPressureNotValid, Constants.AppGlobal.ApplicationName);
             return;
         }
 
         if (fDiastolic <= 0)
         {
-            MessageBox.Show("Diastolic blood pressure value not valid", Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(DiastolicBloodPressureNotValid, Constants.AppGlobal.ApplicationName);
             return;
         }
 
         if (!int.TryParse(this.txtHeartRate.Text, out int heartRate))
         {
-            MessageBox.Show("Heart rate value should be a number", Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(HeartRateShouldBeNumber, Constants.AppGlobal.ApplicationName);
             return;
         }
 
         if (heartRate > 200 || heartRate < 40)
         {
-            MessageBox.Show("Heart rate value should be between 40 and 200", Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(HeartRateNotInRange, Constants.AppGlobal.ApplicationName);
             return;
         }
 
