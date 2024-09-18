@@ -53,7 +53,7 @@ public partial class BloodSugarWindow : Window
     {
         if (this.cmbWhenMeasured.SelectedIndex == -1)
         {
-            MessageBox.Show("Please select a choice for when measured", Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(ChoiceWhenMeasured, Constants.AppGlobal.ApplicationName);
             return;
         }
 
@@ -73,20 +73,20 @@ public partial class BloodSugarWindow : Window
         }
         else
         {
-            var dateStr = (this.dpDate.SelectedDate?.ToString("yyyy-MM-dd") ?? "") + " " + this.txtTime.Text;
+            var dateStr = (this.dpDate.SelectedDate?.ToString(ShortDateFormat) ?? "") + " " + this.txtTime.Text;
 
-            if (!DateTime.TryParseExact(dateStr, "yyyy-MM-dd HH:mm.ss",
+            if (!DateTime.TryParseExact(dateStr, DateFormat1,
                        CultureInfo.InvariantCulture,
                        DateTimeStyles.None,
                        out newDateTime))
             {
-                MessageBox.Show("Date and time are not in right format", Constants.AppGlobal.ApplicationName);
+                MessageBox.Show(DateTimeWrongFormat, Constants.AppGlobal.ApplicationName);
                 return;
             }
 
             if (newDateTime > DateTime.Now)
             {
-                MessageBox.Show("Date time cannot be future", Constants.AppGlobal.ApplicationName);
+                MessageBox.Show(DateTimeCannotBeFuture, Constants.AppGlobal.ApplicationName);
                 return;
             }
         }
@@ -124,7 +124,7 @@ public partial class BloodSugarWindow : Window
         }
         else
         {
-            MessageBox.Show($"Trouble saving entry: {addEntryErrors}", Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(string.Format(TroubleSavingEntry, addEntryErrors), Constants.AppGlobal.ApplicationName);
         }
         this.Close();
     }

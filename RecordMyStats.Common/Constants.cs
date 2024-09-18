@@ -15,6 +15,24 @@
         public const string Errors = "errors: ";
         public const string LongDateFormat = "MMMM dd yyyy hh:mm tt";
         public const string MillimetersOfMercury = "mmHg";
+        public const string ShortDateFormat = "yyyy-MM-dd";
+
+        public const string SystolicBloodPressureNotValid = "Systolic blood pressure value not valid.";
+        public const string DiastolicBloodPressureNotValid = "Diastolic blood pressure value not valid.";
+        public const string HeartRateShouldBeNumber = "Heart rate value should be a number";
+        public const string HeartRateNotInRange = "Heart rate value should be between 40 and 200";
+
+        public const string DateFormat1 = "yyyy-MM-dd HH:mm.ss";
+        public const string DateTimeWrongFormat = "Date and time are not in right format";
+        public const string DateTimeCannotBeFuture = "Date time cannot be future";
+
+        public const string ChoiceWhenMeasured = "Please select a choice for when measured";
+        public const string TroubleSavingEntry = "Trouble saving entry: {0}";
+
+        public Constants()
+        {
+            
+        }
 
         public class AppGlobal
         {

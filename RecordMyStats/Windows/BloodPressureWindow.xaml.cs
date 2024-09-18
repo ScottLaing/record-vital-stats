@@ -12,10 +12,6 @@ public partial class BloodPressureWindow : Window
     private string _fullName;
     private string _token;
     private IVitalsBLL vitalsBLL = VitalsFactory.GetVitalsBLL();
-    private const string SystolicBloodPressureNotValid = "Systolic blood pressure value not valid.";
-    private const string DiastolicBloodPressureNotValid = "Diastolic blood pressure value not valid.";
-    private const string HeartRateShouldBeNumber = "Heart rate value should be a number";
-    private const string HeartRateNotInRange = "Heart rate value should be between 40 and 200";
 
     public BloodPressureWindow(string sessionKey, string fullName, string token)
     {
@@ -58,7 +54,7 @@ public partial class BloodPressureWindow : Window
         string whenMeasured = "";
         if (this.cmbWhenMeasured.SelectedIndex == -1)
         {
-            MessageBox.Show("Please select a choice for when measured", Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(ChoiceWhenMeasured, Constants.AppGlobal.ApplicationName);
             return;
         }
         whenMeasured = this.cmbWhenMeasured?.SelectedItem?.ToString() ?? "";
@@ -79,20 +75,20 @@ public partial class BloodPressureWindow : Window
         }
         else
         {
-            var dateStr = (this.dpDate.SelectedDate?.ToString("yyyy-MM-dd") ?? "") + " " + this.txtTime.Text;
+            var dateStr = (this.dpDate.SelectedDate?.ToString(ShortDateFormat) ?? "") + " " + this.txtTime.Text;
 
-            if (!DateTime.TryParseExact(dateStr, "yyyy-MM-dd HH:mm.ss",
+            if (!DateTime.TryParseExact(dateStr, DateFormat1,
                        CultureInfo.InvariantCulture,
                        DateTimeStyles.None,
                        out newDateTime))
             {
-                MessageBox.Show("Date and time are not in right format", Constants.AppGlobal.ApplicationName);
+                MessageBox.Show(DateTimeWrongFormat, Constants.AppGlobal.ApplicationName);
                 return;
             }
 
             if (newDateTime > DateTime.Now)
             {
-                MessageBox.Show("Date time cannot be future", Constants.AppGlobal.ApplicationName);
+                MessageBox.Show(DateTimeCannotBeFuture, Constants.AppGlobal.ApplicationName);
                 return;
             }
         }
@@ -155,7 +151,7 @@ public partial class BloodPressureWindow : Window
         bool success = vitalsBLL.AddBloodPressureEntry(entry, _sessionKey, _token, out string addEntryErrors);
         if (!success)
         {
-            MessageBox.Show($"Trouble saving entry: {addEntryErrors}", Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(string.Format(TroubleSavingEntry, addEntryErrors), Constants.AppGlobal.ApplicationName);
         }
         this.Close();
     }
