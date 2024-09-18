@@ -51,7 +51,7 @@ public partial class OxygenLevelViewWindow : Window
         var to = dpToDate.SelectedDate;
         if (from == null || to == null)
         {
-            MessageBox.Show("Please enter from and to dates");
+            MessageBox.Show(FromAndToDates);
             return;
         }
 
