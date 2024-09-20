@@ -58,14 +58,14 @@ public partial class BloodPressureWindow : Window
         string whenMeasured = "";
         if (this.cmbWhenMeasured.SelectedIndex == -1)
         {
-            MessageBox.Show(ChoiceWhenMeasured, Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(ChoiceWhenMeasured, Constants.AppGlobal.ApplicationName, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.None);
             return;
         }
         whenMeasured = this.cmbWhenMeasured?.SelectedItem?.ToString() ?? "";
 
         if (this.cmbBloodPressureUnits.SelectedIndex == -1)
         {
-            MessageBox.Show(SelectBloodPressureUnit, Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(SelectBloodPressureUnit, Constants.AppGlobal.ApplicationName, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.None);
             return;
         }
 
@@ -102,12 +102,12 @@ public partial class BloodPressureWindow : Window
         float fSystolic;
         if (! float.TryParse(systolic, out fSystolic))
         {
-            MessageBox.Show(SystolicBloodPressureNotValid, Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(SystolicBloodPressureNotValid, Constants.AppGlobal.ApplicationName, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.None);
             return;
         }
         if (fSystolic <= 0)
         {
-            MessageBox.Show(SystolicBloodPressureNotValid, Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(SystolicBloodPressureNotValid, Constants.AppGlobal.ApplicationName, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.None);
             return;
         }
 
@@ -122,19 +122,19 @@ public partial class BloodPressureWindow : Window
 
         if (fDiastolic <= 0)
         {
-            MessageBox.Show(DiastolicBloodPressureNotValid, Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(DiastolicBloodPressureNotValid, Constants.AppGlobal.ApplicationName, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.None);
             return;
         }
 
         if (!int.TryParse(this.txtHeartRate.Text, out int heartRate))
         {
-            MessageBox.Show(HeartRateShouldBeNumber, Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(HeartRateShouldBeNumber, Constants.AppGlobal.ApplicationName, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.None);
             return;
         }
 
         if (heartRate > PulseRateMax || heartRate < PulseRateMin)
         {
-            MessageBox.Show(HeartRateNotInRange, Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(HeartRateNotInRange, Constants.AppGlobal.ApplicationName, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.None);
             return;
         }
 
@@ -155,7 +155,7 @@ public partial class BloodPressureWindow : Window
         bool success = vitalsBLL.AddBloodPressureEntry(entry, _sessionKey, _token, out string addEntryErrors);
         if (!success)
         {
-            MessageBox.Show(string.Format(TroubleSavingEntry, addEntryErrors), Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(string.Format(TroubleSavingEntry, addEntryErrors), Constants.AppGlobal.ApplicationName, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.None);
         }
         this.Close();
     }
@@ -174,13 +174,9 @@ public partial class BloodPressureWindow : Window
         {
             e.Handled = false;
         }
-        else
+        else if (!((e.Key >= Key.D0 && e.Key <= Key.D9) || (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)))
         {
-            // Disallow any non-numeric key
-            if (!((e.Key >= Key.D0 && e.Key <= Key.D9) || (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)))
-            {
-                e.Handled = true;
-            }
+            e.Handled = true;
         }
     }
 
