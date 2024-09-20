@@ -12,12 +12,13 @@ public partial class BloodPressureViewWindow : Window
     private string _token;
     private IVitalsBLL vitalsBLL = VitalsFactory.GetVitalsBLL();
     private List<BloodPressure>? lastLookupResults = new List<BloodPressure>();
+    private readonly string WindowTitle = Constants.AppGlobal.ApplicationName + " - List Blood Pressure";
 
     public BloodPressureViewWindow(string sessionKey, string fullName, string token)
     {
         InitializeComponent();
         GlobalUISettings.AddToWindowsList(this);
-        Title = Constants.AppGlobal.ApplicationName + " - List Blood Pressure";
+       this.Title = WindowTitle;
       
         txtFullName.Content = fullName + LoggedIn;
         _sessionKey = sessionKey;

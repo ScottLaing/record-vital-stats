@@ -29,6 +29,11 @@
         public const string ChoiceWhenMeasured = "Please select a choice for when measured";
         public const string TroubleSavingEntry = "Trouble saving entry: {0}";
 
+        public const string SelectBloodSugarUnits = "Please select a blood sugars unit from blood sugar units drop down";
+
+        public const string TroubleGettingSessionKey = "Trouble getting session key for New User - ";
+
+        public const string TroubleGettingBloodSugarEntry = "trouble saving blood sugar entry - ";
         public Constants()
         {
             

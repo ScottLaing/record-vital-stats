@@ -8,6 +8,9 @@ namespace RecordMyStats.Windows;
 /// </summary>
 public partial class BloodSugarWindow : Window
 {
+    private const string InvalidBloodSugar = "Invalid Blood sugar value";
+    private const string BloodSugarMustBeNumber = "Blood sugar value should be a number";
+    private readonly string WindowTitle = Constants.AppGlobal.ApplicationName + " - Blood Sugar";
     private string _sessionKey;
     private string _fullName;
     private string _token;
@@ -20,7 +23,7 @@ public partial class BloodSugarWindow : Window
 
         var info = vitalsBLL.GetMemberInfoBySessionKey(sessionKey, token, out string memberInfoErrors);
 
-        this.Title = Constants.AppGlobal.ApplicationName + " - Blood Sugar";
+        this.Title = WindowTitle;
         UpdateTime();
         txtFullName.Content = fullName + LoggedIn;
         _sessionKey = sessionKey;
@@ -59,7 +62,7 @@ public partial class BloodSugarWindow : Window
 
         if (this.cmbBloodSugarUnits.SelectedIndex == -1)
         {
-            MessageBox.Show("Please select a blood sugars unit from blood sugar units drop down", Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(SelectBloodSugarUnits, Constants.AppGlobal.ApplicationName);
             return;
         }
 
@@ -96,13 +99,13 @@ public partial class BloodSugarWindow : Window
         string level = this.txtBloodSugar.Text.Trim();
         if (! int.TryParse(level, out int levelInt))
         {
-            MessageBox.Show("Blood sugar value should be a number", Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(BloodSugarMustBeNumber, Constants.AppGlobal.ApplicationName);
             return;
         }
 
         if (levelInt <= 0)
         {
-            MessageBox.Show("Invalid Blood sugar value", Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(InvalidBloodSugar, Constants.AppGlobal.ApplicationName);
             return;
         }
 
@@ -118,11 +121,7 @@ public partial class BloodSugarWindow : Window
         };
 
         bool success = vitalsBLL.AddBloodSugarEntry(entry, _sessionKey, _token, out string addEntryErrors);
-        if (success)
-        {
-           // MessageBox.Show("Blood sugar saved successfully.", Constants.AppGlobal.ApplicationName);
-        }
-        else
+        if (!success)
         {
             MessageBox.Show(string.Format(TroubleSavingEntry, addEntryErrors), Constants.AppGlobal.ApplicationName);
         }

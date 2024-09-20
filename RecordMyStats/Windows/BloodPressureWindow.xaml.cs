@@ -8,6 +8,8 @@ namespace RecordMyStats.Windows;
 /// </summary>
 public partial class BloodPressureWindow : Window
 {
+    private const string SelectBloodPressureUnit = "Please select a blood pressure unit from blood sugar units drop down";
+    private readonly string WindowTitle = Constants.AppGlobal.ApplicationName + " - Blood Pressure";
     private string _sessionKey;
     private string _fullName;
     private string _token;
@@ -20,7 +22,7 @@ public partial class BloodPressureWindow : Window
 
         var info = vitalsBLL.GetMemberInfoBySessionKey(sessionKey, token, out string memberInfoErrors);
 
-        this.Title = Constants.AppGlobal.ApplicationName + " - Blood Pressure";
+        this.Title = WindowTitle;
         UpdateTime();
         txtFullName.Content = fullName + LoggedIn;
         _sessionKey = sessionKey;
@@ -61,7 +63,7 @@ public partial class BloodPressureWindow : Window
 
         if (this.cmbBloodPressureUnits.SelectedIndex == -1)
         {
-            MessageBox.Show("Please select a blood pressure unit from blood sugar units drop down", Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(SelectBloodPressureUnit, Constants.AppGlobal.ApplicationName);
             return;
         }
 

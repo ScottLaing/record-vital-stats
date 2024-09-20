@@ -11,6 +11,8 @@ public partial class RecordStatsWindow : Window
     private string _fullName;
     private string _token;
     private IVitalsBLL vitalsBLL = VitalsFactory.GetVitalsBLL();
+    private const string PulseValueInvalid = "Pulse value is not valid.";
+    private const string BloodSugarValueInvalid = "Blood sugar value is not valid.";
 
     public RecordStatsWindow(string sessionKey, string fullName, string token)
     {
@@ -99,7 +101,7 @@ public partial class RecordStatsWindow : Window
             }
             else
             {
-                MessageBox.Show("Pulse value is not valid.", Constants.AppGlobal.ApplicationName);
+                MessageBox.Show(PulseValueInvalid, Constants.AppGlobal.ApplicationName);
                 return;
             }
         }
@@ -117,7 +119,7 @@ public partial class RecordStatsWindow : Window
             }
             else
             {
-                MessageBox.Show("Blood sugar value is not valid.", Constants.AppGlobal.ApplicationName);
+                MessageBox.Show(BloodSugarValueInvalid, Constants.AppGlobal.ApplicationName);
                 return;
             }
         }
@@ -142,7 +144,7 @@ public partial class RecordStatsWindow : Window
 
         if (this.cmbBloodSugarUnits.SelectedIndex == -1)
         {
-            MessageBox.Show("Please select a blood sugars unit from blood sugar units drop down", Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(SelectBloodSugarUnits, Constants.AppGlobal.ApplicationName);
             return;
         }
 

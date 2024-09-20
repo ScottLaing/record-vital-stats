@@ -3,6 +3,7 @@ using RecordMyStats.Common;
 using RecordMyStats.Common.Entities;
 using RecordMyStats.Common.Utility;
 using System.Data.SqlClient;
+using static RecordMyStats.Common.Constants;
 
 namespace RecordMyStats.DataAccess.Data.Vitals
 {
@@ -408,7 +409,7 @@ namespace RecordMyStats.DataAccess.Data.Vitals
                 CreateSession(newMemberId, out string createSessErr, out string newSessionKey2);
                 if (!string.IsNullOrWhiteSpace(createSessErr))
                 {
-                    errors = "Trouble getting session key for New User - " + createSessErr;
+                    errors = TroubleGettingSessionKey + createSessErr;
                     return false;
                 }
                 newSessionKey = newSessionKey2;
