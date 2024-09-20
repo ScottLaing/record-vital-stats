@@ -14,6 +14,8 @@ public partial class BloodPressureWindow : Window
     private string _fullName;
     private string _token;
     private IVitalsBLL vitalsBLL = VitalsFactory.GetVitalsBLL();
+    private const int PulseRateMin = 30;
+    private const int PulseRateMax = 300;   
 
     public BloodPressureWindow(string sessionKey, string fullName, string token)
     {
@@ -43,7 +45,7 @@ public partial class BloodPressureWindow : Window
     {
         var now = DateTime.Now;
         this.dpDate.SelectedDate = now;
-        this.txtTime.Text = $"{now.Hour:D2}:{now.Minute:D2}.{now.Second:D2}";
+        this.txtTime.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", now.Hour, now.Minute, now.Second);
     }
 
     private void btnRefreshTime_Click(object sender, RoutedEventArgs e)
@@ -114,7 +116,7 @@ public partial class BloodPressureWindow : Window
         var diastolic = txtBloodPressureDiastolic.Text;
         if (! float.TryParse(diastolic, out fDiastolic))
         {
-            MessageBox.Show(DiastolicBloodPressureNotValid, Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(DiastolicBloodPressureNotValid, Constants.AppGlobal.ApplicationName, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.None);
             return;
         }
 
@@ -130,7 +132,7 @@ public partial class BloodPressureWindow : Window
             return;
         }
 
-        if (heartRate > 200 || heartRate < 40)
+        if (heartRate > PulseRateMax || heartRate < PulseRateMin)
         {
             MessageBox.Show(HeartRateNotInRange, Constants.AppGlobal.ApplicationName);
             return;
@@ -194,7 +196,7 @@ public partial class BloodPressureWindow : Window
         }
         catch (Exception ex)
         {
-            //MessageBox.Show(ex.Message, Constants.AppGlobal.ApplicationName);
+            //TODO - odd error, log with Serilog in future
         }
     }
 

@@ -43,7 +43,6 @@ public partial class BloodPressureViewWindow : Window
         dpFromDate.SelectedDate = new DateTime(now.Year, 1, 1);
         dpToDate.DisplayDate = now;
         dpToDate.SelectedDate = now;
-
     }
 
     private void btnApplyFilters_Click(object sender, RoutedEventArgs e)
