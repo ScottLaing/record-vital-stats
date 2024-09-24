@@ -14,6 +14,7 @@ public partial class O2LevelWindow : Window
     private string _fullName;
     private string _token;
     private IVitalsBLL vitalsBLL = VitalsFactory.GetVitalsBLL();
+    private const string OxygenValueNotValid = "Oxygen value not valid.";
 
     public O2LevelWindow(string sessionKey, string fullName, string token)
     {
@@ -90,13 +91,13 @@ public partial class O2LevelWindow : Window
         var o2level = txtO2Level.Text;
         if (! int.TryParse(o2level, out int iOxygenLevel))
         {
-            MessageBox.Show("Oxygen value not valid.", Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(OxygenValueNotValid, Constants.AppGlobal.ApplicationName);
             return;
         }
 
         if (iOxygenLevel <= 0)
         {
-            MessageBox.Show("Oxgeyn value not valid", Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(OxygenValueNotValid, Constants.AppGlobal.ApplicationName);
             return;
         }
 
