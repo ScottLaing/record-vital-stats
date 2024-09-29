@@ -15,6 +15,7 @@ public partial class O2LevelWindow : Window
     private string _token;
     private IVitalsBLL vitalsBLL = VitalsFactory.GetVitalsBLL();
     private const string OxygenValueNotValid = "Oxygen value not valid.";
+    private const string HeartRateOutofRange = "Heart rate value should be between 40 and 200";
 
     public O2LevelWindow(string sessionKey, string fullName, string token)
     {
@@ -109,7 +110,7 @@ public partial class O2LevelWindow : Window
 
         if (heartRate > 200 || heartRate < 40)
         {
-            MessageBox.Show("Heart rate value should be between 40 and 200", Constants.AppGlobal.ApplicationName);
+            MessageBox.Show(HeartRateOutofRange, Constants.AppGlobal.ApplicationName);
             return;
         }
 
